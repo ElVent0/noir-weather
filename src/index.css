@@ -1,0 +1,89 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+/* Common ---------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252525;
+  background: #fff;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+}
+
+.container {
+  max-width: 956px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Fonts ---------------------------------------------------------- */
+
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: local("Lato"), url(./fonts/Lato-Thin.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: local("Lato"), url(./fonts/Lato-Light.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: local("Lato"), url(./fonts/Lato-Regular.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: local("Lato"), url(./fonts/Lato-Bold.ttf) format("ttf");
+}
+
+/* Scrollbar ------------------------------------------------------- */
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: $color-yellow;
+} */
