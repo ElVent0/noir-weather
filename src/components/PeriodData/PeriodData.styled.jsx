@@ -65,7 +65,7 @@ export const Time = styled.div`
 `;
 
 export const List = styled.ul`
-  padding: 0 1vw;
+  /* padding: 0 0.4vw; */
 `;
 
 export const Item = styled.li`

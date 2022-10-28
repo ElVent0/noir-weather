@@ -9,7 +9,7 @@ import {
 } from "./LeftPart.styled";
 
 const LeftPart = ({ weatherData }) => {
-  console.log(2222, weatherData);
+  // console.log(2222, weatherData);
   return (
     <LeftPartStyled>
       <FormBlock>

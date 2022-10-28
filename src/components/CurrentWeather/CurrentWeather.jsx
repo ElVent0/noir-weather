@@ -21,7 +21,7 @@ const CurrentWeather = ({ weatherData }) => {
   const [minutes, setMinutes] = useState(new Date().getMinutes());
   const [seconds, setSeconds] = useState(new Date().getSeconds());
 
-  console.log(3333, weatherData);
+  // console.log(3333, weatherData);
 
   useEffect(() => {
     const handleClock = () => {
@@ -52,10 +52,21 @@ const CurrentWeather = ({ weatherData }) => {
     handleClock();
   }, []);
 
-  const precipitation = weatherData.hourly.precipitation[hours];
-  const relativehumidity = weatherData.hourly.relativehumidity_2m[hours];
+  const numberOfItemForCurrentWeather =
+    hours.toString().indexOf("0") === 0 ? hours.toString().slice(1) : hours;
+
+  // if (hours.indexOf(0) === 0) {
+  //   return hours.slice(1);
+  // } else {
+  //   return hours;
+  // }
+
+  const precipitation =
+    weatherData.hourly.precipitation[numberOfItemForCurrentWeather];
+  const relativehumidity =
+    weatherData.hourly.relativehumidity_2m[numberOfItemForCurrentWeather];
   const apparent_temperature = Math.round(
-    weatherData.hourly.apparent_temperature[hours]
+    weatherData.hourly.apparent_temperature[numberOfItemForCurrentWeather]
   );
 
   return (
@@ -103,11 +114,11 @@ const CurrentWeather = ({ weatherData }) => {
           <Fealing>Відчувається як {apparent_temperature}°</Fealing>
           <AdditionalInfo>
             <List>
-              <Item title="Humidity">{relativehumidity}%</Item>
-              <Item title="Windspeed">
+              <Item data="Humidity">{relativehumidity}%</Item>
+              <Item data="Windspeed">
                 {Math.round(weatherData.current_weather.windspeed)} км/год
               </Item>
-              <Item title="Precipitation">{precipitation} мм</Item>
+              <Item data="Precipitation">{precipitation} мм</Item>
             </List>
           </AdditionalInfo>
         </TemperatureInfo>

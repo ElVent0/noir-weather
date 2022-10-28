@@ -8,8 +8,8 @@ export const LeftPartStyled = styled.div`
 `;
 
 export const FormBlock = styled.div`
-  background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  /* background-color: #fff; */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 0.8vw;
   height: 2vw;
   margin-bottom: 0.6vw;
@@ -24,7 +24,7 @@ export const Input = styled.input`
   width: 100%;
   height: 100%;
   background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0); */
   border-radius: 0.8vw;
   border: none;
   padding: 0 1.2vw;

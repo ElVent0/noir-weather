@@ -128,7 +128,7 @@ export const List = styled.div`
 export const Item = styled.div`
   padding: 0.2vw 0.4vw 0.2vw 0.2vw;
   background-color: #fff;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0.8vw;
   font-weight: 275;
   font-size: 0.6vw;
@@ -139,8 +139,14 @@ export const Item = styled.div`
   color: #707070;
   cursor: pointer;
   user-select: none;
-  /* &[title]:hover:after {
-    border-radius: 2vw;
-    color: red;
-  } */
+  position: relative;
+  &:hover::after {
+    content: attr(data);
+    position: absolute;
+    top: 120%;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 0.2vw 0.4vw;
+    border-radius: 0.4vw;
+  }
 `;

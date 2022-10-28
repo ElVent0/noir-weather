@@ -33,7 +33,7 @@ const Content = () => {
         if (fetchedData) {
           setWeatherData(fetchedData);
         }
-        console.log(1111, fetchedData);
+        // console.log(1111, fetchedData);
       } catch (e) {
         alert("На даний момент сервер не працює");
       } finally {

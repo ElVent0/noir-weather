@@ -8,8 +8,29 @@ import {
   Button,
 } from "./RightPart.styled";
 import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const RigthPart = ({ weatherData }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [defaultDay, setDefaultDay] = useState(0);
+
+  const onDayClick = (e) => {
+    // console.log(e.currentTarget.value);
+    setSearchParams({ day: e.currentTarget.value });
+  };
+
+  useEffect(() => {
+    // if (day === "") return;
+
+    // async function fetchUser() {
+    //   const user = await FakeAPI.getUser(day);
+    //   setUser(user);
+    // }
+    // fetchUser();
+
+    setDefaultDay(searchParams.get("day"));
+  }, [searchParams]);
+
   // Змінити два наступні масиви на дані з Api (Для списку днів) -------------------------------
 
   const smallDataForNextDays = [1, 2, 3, 4, 5, 6, 7];
@@ -56,10 +77,13 @@ const RigthPart = ({ weatherData }) => {
           </Item>
         </List>
       </NumberOfDaysButtons> */}
-      {/* <div> */}
-      <DaysList weatherData={weatherData} dataForNextDays={dataForNextDays} />
-      <ScheduleOfToday />
-      {/* </div> */}
+      <DaysList
+        weatherData={weatherData}
+        dataForNextDays={dataForNextDays}
+        onDayClick={onDayClick}
+        defaultDay={defaultDay}
+      />
+      <ScheduleOfToday weatherData={weatherData} defaultDay={defaultDay} />
     </RightPartStyled>
   );
 };

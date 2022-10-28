@@ -20,6 +20,7 @@ export const Item = styled.li`
   user-select: none;
   cursor: pointer;
   opacity: 0.8;
+  transition: all 0.3s;
   &:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }

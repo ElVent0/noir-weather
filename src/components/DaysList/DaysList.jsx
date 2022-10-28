@@ -14,29 +14,29 @@ import {
   DaysListStyled,
   // DayButton,
 } from "./DaysList.styled";
-import { useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import { useSearchParams } from "react-router-dom";
+// import { useState, useEffect } from "react";
 
-const DaysList = ({ weatherData, dataForNextDays }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [defaultDay, setDefaultDay] = useState(0);
+const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const [defaultDay, setDefaultDay] = useState(0);
 
-  useEffect(() => {
-    // if (day === "") return;
+  // useEffect(() => {
+  //   // if (day === "") return;
 
-    // async function fetchUser() {
-    //   const user = await FakeAPI.getUser(day);
-    //   setUser(user);
-    // }
-    // fetchUser();
+  //   // async function fetchUser() {
+  //   //   const user = await FakeAPI.getUser(day);
+  //   //   setUser(user);
+  //   // }
+  //   // fetchUser();
 
-    setDefaultDay(searchParams.get("day"));
-  }, [searchParams]);
+  //   setDefaultDay(searchParams.get("day"));
+  // }, [searchParams]);
 
-  const onDayClick = (e) => {
-    console.log(e.currentTarget.value);
-    setSearchParams({ day: e.currentTarget.value });
-  };
+  // const onDayClick = (e) => {
+  //   console.log(e.currentTarget.value);
+  //   setSearchParams({ day: e.currentTarget.value });
+  // };
 
   const dailyData = [];
   for (let i = 0; i < 7; i += 1) {
