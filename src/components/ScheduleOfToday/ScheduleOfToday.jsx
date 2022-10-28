@@ -27,10 +27,10 @@ const ScheduleOfToday = () => {
         </Description>
         <Data>
           <ListData>
-            <PeriodData />
-            <PeriodData />
-            <PeriodData />
-            <PeriodData />
+            <PeriodData periodName="Ніч" timeLeft="00:00" timeRight="00:03" />
+            <PeriodData periodName="Ранок" timeLeft="06:00" timeRight="09:00" />
+            <PeriodData periodName="Вечір" timeLeft="12:00" timeRight="15:00" />
+            <PeriodData periodName="День" timeLeft="18:00" timeRight="21:00" />
           </ListData>
         </Data>
       </ScheaduleBlockContent>

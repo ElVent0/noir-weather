@@ -8,7 +8,8 @@ import {
   TodayBlock,
 } from "./LeftPart.styled";
 
-const LeftPart = () => {
+const LeftPart = ({ weatherData }) => {
+  console.log(2222, weatherData);
   return (
     <LeftPartStyled>
       <FormBlock>
@@ -17,7 +18,7 @@ const LeftPart = () => {
         </Form>
       </FormBlock>
       <TodayBlock>
-        <CurrentWeather />
+        <CurrentWeather weatherData={weatherData} />
         <AirQuality />
       </TodayBlock>
     </LeftPartStyled>

@@ -5,7 +5,7 @@ import photo from "./1.png";
 export const CurrentWeatherStyled = styled.div`
   position: relative;
   border-radius: 0.8vw;
-  margin-bottom: 1.6vw;
+  margin-bottom: 0.8vw;
   background-color: teal;
   display: flex;
   justify-content: flex-start;
@@ -40,7 +40,7 @@ export const Icon = styled.div`
 
 export const City = styled.p`
   font-weight: 275;
-  font-size: 1.2vw;
+  font-size: 1vw;
   /* line-height: 17px; */
 `;
 
@@ -137,4 +137,10 @@ export const Item = styled.div`
   align-items: center;
   justify-content: center;
   color: #707070;
+  cursor: pointer;
+  user-select: none;
+  /* &[title]:hover:after {
+    border-radius: 2vw;
+    color: red;
+  } */
 `;

@@ -13,46 +13,103 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   flex-grow: 1;
-  background: #ffffff;
+  background-color: #f9f9f9;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.8vw;
   padding: 0.6vw;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+  &:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  opacity: ${(props) => {
+    return props.active && "1";
+  }};
+  background-color: ${(props) => {
+    return props.active && "#fff";
+  }};
+  box-shadow: ${(props) => {
+    return props.active && "0px 4px 10px rgba(0, 0, 0, 0.2)";
+  }};
+  /* padding-top: ${(props) => {
+    return props.numberOfDays === "14" ? " 1vw" : null;
+  }};
+  padding-bottom: ${(props) => {
+    return props.numberOfDays === "14" ? " 1vw" : null;
+  }}; */
 `;
+
+// export const DayButton = styled.button`
+//   background: #ffffff;
+//   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+//   border-radius: 0.8vw;
+//   padding: 0.6vw;
+//   user-select: none;
+//   opacity: 0.6;
+//   &.active {
+//     opacity: 1;
+//   }
+// `;
 
 export const TopPart = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1vw;
+  /* display: ${(props) => {
+    return props.numberOfDays === "14" ? "block" : null;
+  }};
+  margin-bottom: ${(props) => {
+    return props.numberOfDays === "14" ? "0" : null;
+  }}; */
 `;
 
 export const NameOfDay = styled.div`
   margin-right: 0.4vw;
   margin-right: auto;
+  /* margin-bottom: ${(props) => {
+    return props.numberOfDays === "14" ? "1.25vw" : null;
+  }}; */
 `;
 
 export const Day = styled.p`
   font-weight: 700;
-  font-size: 1.8vw;
+  font-size: 1.2vw;
   /* line-height: 17px; */
   color: #707070;
   margin-bottom: auto;
+  /* font-size: ${(props) => {
+    return props.numberOfDays === "14" ? "1.52vw" : null;
+  }}; */
 `;
 
-export const Date = styled.p`
+export const NumberDate = styled.p`
   font-weight: 300;
   font-size: 1vw;
   /* line-height: 10px; */
   color: #707070;
+  /* font-size: ${(props) => {
+    return props.numberOfDays === "14" ? ".86vw" : null;
+  }}; */
 `;
 
 export const Icon = styled.div`
-  width: 2vw;
-  height: 2vw;
+  width: 3vw;
+  height: 3vw;
   background-color: orange;
+  /* width: ${(props) => {
+    return props.numberOfDays === "14" ? "2.2vw" : null;
+  }};
+  height: ${(props) => {
+    return props.numberOfDays === "14" ? "2.2vw" : null;
+  }}; */
 `;
 
 export const BottomPart = styled.div`
   display: flex;
+  /* display: ${(props) => {
+    return props.numberOfDays === "14" ? " none" : null;
+  }}; */
   gap: 0.6vw;
 `;
 

@@ -14,32 +14,100 @@ import {
   AdditionalInfo,
   TemperatureInfo,
 } from "./CurrentWeather.styled";
+import { useState, useEffect } from "react";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ weatherData }) => {
+  const [hours, setHours] = useState(new Date().getHours());
+  const [minutes, setMinutes] = useState(new Date().getMinutes());
+  const [seconds, setSeconds] = useState(new Date().getSeconds());
+
+  console.log(3333, weatherData);
+
+  useEffect(() => {
+    const handleClock = () => {
+      setInterval(() => {
+        const date = new Date();
+
+        let currentSeconds = date.getSeconds();
+        // console.log(currentSeconds);
+        if (currentSeconds.toString().length < 2) {
+          currentSeconds = `0${currentSeconds}`;
+        }
+        setSeconds(currentSeconds);
+
+        let currentMinutes = date.getMinutes();
+        // console.log(currentMinutes);
+        if (currentMinutes.toString().length < 2) {
+          currentMinutes = `0${currentMinutes}`;
+        }
+        setMinutes(currentMinutes);
+
+        let currentHours = date.getHours();
+        if (currentHours.toString().length < 2) {
+          currentHours = `0${currentHours}`;
+        }
+        setHours(currentHours);
+      }, 1000);
+    };
+    handleClock();
+  }, []);
+
+  const precipitation = weatherData.hourly.precipitation[hours];
+  const relativehumidity = weatherData.hourly.relativehumidity_2m[hours];
+  const apparent_temperature = Math.round(
+    weatherData.hourly.apparent_temperature[hours]
+  );
+
   return (
     <CurrentWeatherStyled>
       <TimeBlock>
         <LeftPartOfTimeBlock>
-          <City>Kyiv</City>
+          <City>{weatherData.timezone}</City>
           <Time>
-            22:56:<span>34</span>
+            {hours}:{minutes}:<span>{seconds}</span>
           </Time>
           <SunRiseDown>
-            <span>Схід: 10:00</span>
-            <span>Захід: 22:00</span>
+            <span>
+              Схід:{" "}
+              {new Date(weatherData.daily.sunrise[0]).getHours().toString()
+                .length < 2
+                ? `0${new Date(weatherData.daily.sunrise[0]).getHours()}`
+                : new Date(weatherData.daily.sunrise[0]).getHours()}
+              :
+              {new Date(weatherData.daily.sunrise[0]).getMinutes().toString()
+                .length < 2
+                ? `0${new Date(weatherData.daily.sunrise[0]).getMinutes()}`
+                : new Date(weatherData.daily.sunrise[0]).getMinutes()}
+            </span>
+            <span>
+              Захід:{" "}
+              {new Date(weatherData.daily.sunset[0]).getHours().toString()
+                .length < 2
+                ? `0${new Date(weatherData.daily.sunset[0]).getHours()}`
+                : new Date(weatherData.daily.sunset[0]).getHours()}
+              :
+              {new Date(weatherData.daily.sunset[0]).getMinutes().toString()
+                .length < 2
+                ? `0${new Date(weatherData.daily.sunset[0]).getMinutes()}`
+                : new Date(weatherData.daily.sunset[0]).getMinutes()}
+            </span>
           </SunRiseDown>
         </LeftPartOfTimeBlock>
-        <Icon></Icon>
+        <Icon>{weatherData.current_weather.weathercode}</Icon>
       </TimeBlock>
       <WeatherBlock>
         <TemperatureInfo>
-          <Temperature>+12°</Temperature>
-          <Fealing>Відчувається як +14°</Fealing>
+          <Temperature>
+            {Math.round(weatherData.current_weather.temperature)}°
+          </Temperature>
+          <Fealing>Відчувається як {apparent_temperature}°</Fealing>
           <AdditionalInfo>
             <List>
-              <Item>34%</Item>
-              <Item>4 м/c</Item>
-              <Item>14 мм</Item>
+              <Item title="Humidity">{relativehumidity}%</Item>
+              <Item title="Windspeed">
+                {Math.round(weatherData.current_weather.windspeed)} км/год
+              </Item>
+              <Item title="Precipitation">{precipitation} мм</Item>
             </List>
           </AdditionalInfo>
         </TemperatureInfo>

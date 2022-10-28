@@ -9,13 +9,13 @@ import {
   Item,
 } from "./PeriodData.styled";
 
-const PeriodData = () => {
+const PeriodData = ({ periodName, timeLeft, timeRight }) => {
   return (
     <ItemData>
-      <Period>Ніч</Period>
+      <Period>{periodName}</Period>
       <Columns>
         <LeftColumn>
-          <Time>00:00</Time>
+          <Time>{timeLeft}</Time>
           <List>
             <Item>+10*</Item>
             <Item>+10*</Item>
@@ -26,7 +26,7 @@ const PeriodData = () => {
           </List>
         </LeftColumn>
         <RightColumn>
-          <Time>03:00</Time>
+          <Time>{timeRight}</Time>
           <List>
             <Item>+10*</Item>
             <Item>+10*</Item>
