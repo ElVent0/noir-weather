@@ -10,7 +10,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const RigthPart = ({ weatherData }) => {
+const RigthPart = ({ weatherData, currentHours }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [defaultDay, setDefaultDay] = useState(0);
 
@@ -83,7 +83,11 @@ const RigthPart = ({ weatherData }) => {
         onDayClick={onDayClick}
         defaultDay={defaultDay}
       />
-      <ScheduleOfToday weatherData={weatherData} defaultDay={defaultDay} />
+      <ScheduleOfToday
+        weatherData={weatherData}
+        defaultDay={defaultDay}
+        currentHours={currentHours}
+      />
     </RightPartStyled>
   );
 };

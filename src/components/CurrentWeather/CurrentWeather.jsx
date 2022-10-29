@@ -15,6 +15,7 @@ import {
   TemperatureInfo,
 } from "./CurrentWeather.styled";
 import { useState, useEffect } from "react";
+// import { WiDaySunny } from "react-icons/wi";
 
 const CurrentWeather = ({ weatherData }) => {
   const [hours, setHours] = useState(new Date().getHours());
@@ -79,7 +80,7 @@ const CurrentWeather = ({ weatherData }) => {
           </Time>
           <SunRiseDown>
             <span>
-              Схід:{" "}
+              Sunrise:{" "}
               {new Date(weatherData.daily.sunrise[0]).getHours().toString()
                 .length < 2
                 ? `0${new Date(weatherData.daily.sunrise[0]).getHours()}`
@@ -91,7 +92,7 @@ const CurrentWeather = ({ weatherData }) => {
                 : new Date(weatherData.daily.sunrise[0]).getMinutes()}
             </span>
             <span>
-              Захід:{" "}
+              Sunset:{" "}
               {new Date(weatherData.daily.sunset[0]).getHours().toString()
                 .length < 2
                 ? `0${new Date(weatherData.daily.sunset[0]).getHours()}`
@@ -105,20 +106,21 @@ const CurrentWeather = ({ weatherData }) => {
           </SunRiseDown>
         </LeftPartOfTimeBlock>
         <Icon>{weatherData.current_weather.weathercode}</Icon>
+        {/* <WiDaySunny /> */}
       </TimeBlock>
       <WeatherBlock>
         <TemperatureInfo>
           <Temperature>
             {Math.round(weatherData.current_weather.temperature)}°
           </Temperature>
-          <Fealing>Відчувається як {apparent_temperature}°</Fealing>
+          <Fealing>Apparent temperature {apparent_temperature}°</Fealing>
           <AdditionalInfo>
             <List>
               <Item data="Humidity">{relativehumidity}%</Item>
               <Item data="Windspeed">
-                {Math.round(weatherData.current_weather.windspeed)} км/год
+                {Math.round(weatherData.current_weather.windspeed)} km/h
               </Item>
-              <Item data="Precipitation">{precipitation} мм</Item>
+              <Item data="Precipitation">{precipitation} mm</Item>
             </List>
           </AdditionalInfo>
         </TemperatureInfo>

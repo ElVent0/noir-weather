@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import shape from "./shape.svg";
-import photo from "./1.png";
+import shape from "../../media/svg/shape.svg";
+import poster from "../../media/poster-1.jpg";
 
 export const CurrentWeatherStyled = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ export const CurrentWeatherStyled = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 0.6vw;
-  background-image: url("${photo}");
+  background-image: url("${poster}");
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -56,14 +56,14 @@ export const Time = styled.p`
 
 export const SunRiseDown = styled.p`
   font-weight: 300;
-  font-size: 0.6vw;
+  font-size: 0.54vw;
   /* line-height: 7px; */
   display: flex;
   & > span {
     display: block;
   }
   & > span:first-child {
-    margin-right: 0.6vw;
+    margin-right: 0.4vw;
   }
 `;
 
@@ -107,7 +107,7 @@ export const Temperature = styled.div`
 export const Fealing = styled.div`
   text-align: right;
   font-weight: 275;
-  font-size: 0.6vw;
+  font-size: 0.64vw;
   /* line-height: 7px; */
   text-align: right;
   color: #707070;

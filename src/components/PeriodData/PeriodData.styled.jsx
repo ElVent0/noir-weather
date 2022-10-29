@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const ItemData = styled.li`
-  background: teal;
+  background-image: ${(props) => {
+    return `url(${props.background})`;
+  }};
+  background-repeat: no-repeat;
+  background-size: cover;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.8vw;
   flex-grow: 1;
@@ -23,7 +27,7 @@ export const Period = styled.div`
   /* line-height: 12px; */
   text-align: center;
   color: #707070;
-  width: 40%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   padding: 0.2vw 0;
@@ -33,23 +37,30 @@ export const LeftColumn = styled.li`
   flex-grow: 1;
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0.2vw);
   border-radius: 0.6vw;
-
   padding-bottom: 0.6vw;
+  & > div {
+    background-color: ${(props) => {
+      return props.time === true ? "#ff9900" : null;
+    }};
+    color: ${(props) => {
+      return props.time === true ? "rgba(255, 255, 255, 1)" : null;
+    }};
+  }
 `;
 
 export const RightColumn = styled.li`
   flex-grow: 1;
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0.2vw);
   border-radius: 0.6vw;
   padding-bottom: 0.6vw;
 `;
 
 export const Time = styled.div`
-  background: #ffffff;
+  background-color: #ffffff;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2px);
   border-radius: 0.6vw;

@@ -9,12 +9,29 @@ import {
   Item,
 } from "./PeriodData.styled";
 
-const PeriodData = ({ periodName, timeLeft, timeRight, necessaryData }) => {
+const PeriodData = ({
+  periodName,
+  timeLeft,
+  timeRight,
+  hourLeft,
+  hourRight,
+  necessaryData,
+  background,
+  currentHours,
+  defaultDay,
+}) => {
+  // console.log(hourLeft, hourRight);
+  const currentTime = Math.round(currentHours / 3) * 3;
+  // console.log(hourLeft, hourRight, currentTime);
+  // console.log(hourLeft === currentTime);
+  // console.log(hourRight === currentTime);
   return (
-    <ItemData>
-      <Period>{periodName}</Period>
+    <ItemData background={background}>
+      <Period>
+        {periodName.charAt(0).toUpperCase() + periodName.slice(1)}
+      </Period>
       <Columns>
-        <LeftColumn>
+        <LeftColumn time={hourLeft === currentTime && defaultDay === "0"}>
           <Time>{timeLeft}</Time>
           <List>
             <Item>{Math.round(necessaryData.temperature_2m[0])}</Item>
@@ -25,7 +42,7 @@ const PeriodData = ({ periodName, timeLeft, timeRight, necessaryData }) => {
             <Item>{Math.round(necessaryData.windspeed_10m[0])}</Item>
           </List>
         </LeftColumn>
-        <RightColumn>
+        <RightColumn time={hourRight === currentTime && defaultDay === "0"}>
           <Time>{timeRight}</Time>
           <List>
             <Item>{Math.round(necessaryData.temperature_2m[1])}</Item>

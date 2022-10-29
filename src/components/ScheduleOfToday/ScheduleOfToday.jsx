@@ -8,10 +8,14 @@ import {
   ItemDescription,
   Paragraph,
 } from "./ScheduleOfToday.styled";
+import nightBg from "../../media/night.jpg";
+import morningBg from "../../media/morning.jpg";
+import dayBg from "../../media/day.jpg";
+import eveningBg from "../../media/evening.jpg";
 import PeriodData from "../PeriodData/PeriodData";
 import { useState, useEffect, useRef } from "react";
 
-const ScheduleOfToday = ({ weatherData, defaultDay }) => {
+const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
   // const dataSetOne = weatherData.hourly;
 
   const tempRef = useRef(weatherData.hourly.temperature_2m);
@@ -193,7 +197,11 @@ const ScheduleOfToday = ({ weatherData, defaultDay }) => {
     <ScheaduleBlock>
       <ScheaduleBlockContent>
         <Description>
-          <Paragraph>ПН</Paragraph>
+          <Paragraph>
+            {new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(
+              new Date(weatherData.daily.time[defaultDay])
+            )}
+          </Paragraph>
           <ListDescription>
             <ItemDescription>
               Temperature, <b>°</b>
@@ -218,28 +226,48 @@ const ScheduleOfToday = ({ weatherData, defaultDay }) => {
         <Data>
           <ListData>
             <PeriodData
-              periodName="Ніч"
+              periodName="night"
               timeLeft="00:00"
-              timeRight="00:03"
+              timeRight="03:00"
+              hourLeft={24}
+              hourRight={3}
+              currentHours={currentHours}
               necessaryData={necessaryNightData}
+              background={nightBg}
+              defaultDay={defaultDay}
             />
             <PeriodData
-              periodName="Ранок"
+              periodName="morning"
               timeLeft="06:00"
               timeRight="09:00"
+              hourLeft={6}
+              hourRight={9}
+              currentHours={currentHours}
               necessaryData={necessaryMorningData}
+              background={morningBg}
+              defaultDay={defaultDay}
             />
             <PeriodData
-              periodName="День"
+              periodName="day"
               timeLeft="12:00"
               timeRight="15:00"
+              hourLeft={12}
+              hourRight={15}
+              currentHours={currentHours}
               necessaryData={necessaryDayData}
+              background={dayBg}
+              defaultDay={defaultDay}
             />
             <PeriodData
-              periodName="Вечір"
+              periodName="evening"
               timeLeft="18:00"
               timeRight="21:00"
+              hourLeft={18}
+              hourRight={21}
+              currentHours={currentHours}
               necessaryData={necessaryEveningData}
+              background={eveningBg}
+              defaultDay={defaultDay}
             />
           </ListData>
         </Data>

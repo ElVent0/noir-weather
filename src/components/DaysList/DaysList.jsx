@@ -82,11 +82,11 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
               </TopPart>
               <BottomPart>
                 <MinData>
-                  <Paragraph>Мін.</Paragraph>
+                  <Paragraph>Min.</Paragraph>
                   <Temperature>{item.minTemperature}°</Temperature>
                 </MinData>
                 <MaxData>
-                  <Paragraph>Макс.</Paragraph>
+                  <Paragraph>Max.</Paragraph>
                   <Temperature>{item.maxTemperature}°</Temperature>
                 </MaxData>
               </BottomPart>

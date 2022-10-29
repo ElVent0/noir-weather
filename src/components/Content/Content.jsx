@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { getData } from "../../api/api";
 
 const Content = () => {
+  const currentHours = useState(new Date().getHours());
   // Тут всі погодні дані -------------------------
 
   // const getFirstData = async () => {
@@ -50,7 +51,7 @@ const Content = () => {
       {!isLoading && (
         <>
           <LeftPart weatherData={weatherData} />
-          <RightPart weatherData={weatherData} />
+          <RightPart weatherData={weatherData} currentHours={currentHours[0]} />
         </>
       )}
     </ContentBlock>
