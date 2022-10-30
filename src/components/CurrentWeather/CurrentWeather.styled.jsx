@@ -29,13 +29,21 @@ export const TimeBlock = styled.div`
 `;
 
 export const LeftPartOfTimeBlock = styled.div`
-  margin-right: 1vw;
+  margin-right: 0.8vw;
 `;
 
 export const Icon = styled.div`
   width: 4vw;
   height: 4vw;
-  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: orange; */
+  /* & > svg {
+    width: 10vw;
+    color: #ecd60f;
+    margin-right: 0.4vw;
+  } */
 `;
 
 export const City = styled.p`
@@ -102,6 +110,13 @@ export const Temperature = styled.div`
   /* line-height: 31px; */
   text-align: right;
   color: #707070;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  & > svg {
+    width: 1vw;
+    margin-right: 0.4vw;
+  }
 `;
 
 export const Fealing = styled.div`
@@ -122,11 +137,11 @@ export const AdditionalInfo = styled.div`
 
 export const List = styled.div`
   display: flex;
-  gap: 0.4vw;
+  gap: 0.3vw;
 `;
 
 export const Item = styled.div`
-  padding: 0.2vw 0.4vw 0.2vw 0.2vw;
+  padding: 0.2vw 0.3vw 0.2vw 0.1vw;
   background-color: #fff;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0.8vw;

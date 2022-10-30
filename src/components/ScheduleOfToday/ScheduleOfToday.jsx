@@ -229,7 +229,7 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
               periodName="night"
               timeLeft="00:00"
               timeRight="03:00"
-              hourLeft={24}
+              hourLeft={0}
               hourRight={3}
               currentHours={currentHours}
               necessaryData={necessaryNightData}

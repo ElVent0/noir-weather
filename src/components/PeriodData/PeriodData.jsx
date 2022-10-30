@@ -20,18 +20,19 @@ const PeriodData = ({
   currentHours,
   defaultDay,
 }) => {
-  // console.log(hourLeft, hourRight);
   const currentTime = Math.round(currentHours / 3) * 3;
-  // console.log(hourLeft, hourRight, currentTime);
-  // console.log(hourLeft === currentTime);
-  // console.log(hourRight === currentTime);
+
   return (
     <ItemData background={background}>
       <Period>
         {periodName.charAt(0).toUpperCase() + periodName.slice(1)}
       </Period>
       <Columns>
-        <LeftColumn time={hourLeft === currentTime && defaultDay === "0"}>
+        <LeftColumn
+          time={
+            (hourLeft === currentTime || hourLeft === 24) && defaultDay === "0"
+          }
+        >
           <Time>{timeLeft}</Time>
           <List>
             <Item>{Math.round(necessaryData.temperature_2m[0])}</Item>

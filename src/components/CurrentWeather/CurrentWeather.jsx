@@ -15,14 +15,42 @@ import {
   TemperatureInfo,
 } from "./CurrentWeather.styled";
 import { useState, useEffect } from "react";
-// import { WiDaySunny } from "react-icons/wi";
+import { IoMdSunny } from "react-icons/io";
+import {
+  BsFillCloudRainFill,
+  BsFillCloudFill,
+  BsFillCloudLightningRainFill,
+  BsFillCloudFogFill,
+} from "react-icons/bs";
+import { FaRegSnowflake, FaThermometerHalf } from "react-icons/fa";
+import { WiHumidity } from "react-icons/wi";
+import { GiWindsock } from "react-icons/gi";
+import { SiRainmeter } from "react-icons/si";
 
 const CurrentWeather = ({ weatherData }) => {
   const [hours, setHours] = useState(new Date().getHours());
   const [minutes, setMinutes] = useState(new Date().getMinutes());
   const [seconds, setSeconds] = useState(new Date().getSeconds());
 
-  // console.log(3333, weatherData);
+  // const sun = weatherData.current_weather.weathercode;
+  const sun = [0].some(
+    (item) => item === weatherData.current_weather.weathercode
+  );
+  const clouds = [1, 2, 3].some(
+    (item) => item === weatherData.current_weather.weathercode
+  );
+  const fog = [45, 48].some(
+    (item) => item === weatherData.current_weather.weathercode
+  );
+  const rain = [51, 53, 55, 56, 57, 61, 63, 65, 66, 67].some(
+    (item) => item === weatherData.current_weather.weathercode
+  );
+  const snow = [71, 73, 75, 77, 85, 86].some(
+    (item) => item === weatherData.current_weather.weathercode
+  );
+  const thunder = [95, 96, 99].some(
+    (item) => item === weatherData.current_weather.weathercode
+  );
 
   useEffect(() => {
     const handleClock = () => {
@@ -105,22 +133,67 @@ const CurrentWeather = ({ weatherData }) => {
             </span>
           </SunRiseDown>
         </LeftPartOfTimeBlock>
-        <Icon>{weatherData.current_weather.weathercode}</Icon>
+        {/* <Icon>{weatherData.current_weather.weathercode}</Icon> */}
+        <Icon>
+          {sun && <IoMdSunny size={"3.4vw"} color="#fff" />}
+          {clouds && <BsFillCloudFill size={"3.4vw"} color="#fff" />}
+          {fog && <BsFillCloudFogFill size={"3.4vw"} color="#fff" />}
+          {rain && <BsFillCloudRainFill size={"3.4vw"} color="#fff" />}
+          {snow && <FaRegSnowflake size={"3.4vw"} color="#fff" />}
+          {thunder && (
+            <BsFillCloudLightningRainFill size={"3.4vw"} color="#fff" />
+          )}
+
+          {/* <IoMdSunny size={"3.4vw"} /> */}
+          {/* <BsFillCloudFill size={"3.4vw"} /> */}
+          {/* <BsFillCloudFogFill size={"3.4vw"} /> */}
+          {/* <BsFillCloudRainFill size={"3.4vw"} /> */}
+          {/* <FaRegSnowflake size={"3.4vw"} /> */}
+          {/* <BsFillCloudLightningRainFill size={"3.4vw"} /> */}
+        </Icon>
         {/* <WiDaySunny /> */}
       </TimeBlock>
       <WeatherBlock>
         <TemperatureInfo>
           <Temperature>
+            <FaThermometerHalf />
             {Math.round(weatherData.current_weather.temperature)}°
           </Temperature>
           <Fealing>Apparent temperature {apparent_temperature}°</Fealing>
           <AdditionalInfo>
             <List>
-              <Item data="Humidity">{relativehumidity}%</Item>
+              <Item data="Humidity">
+                <WiHumidity
+                  style={{
+                    position: "relative",
+                    transform: "scale(1.6)",
+                    margin: "0 .1vw 0 0",
+                  }}
+                />
+                {relativehumidity}%
+              </Item>
               <Item data="Windspeed">
+                <GiWindsock
+                  style={{
+                    position: "relative",
+                    // transform: "scale(1.4)",
+                    transform: "translate(.2vw)",
+                    margin: "0 .2vw 0 0",
+                  }}
+                />
                 {Math.round(weatherData.current_weather.windspeed)} km/h
               </Item>
-              <Item data="Precipitation">{precipitation} mm</Item>
+              <Item data="Precipitation">
+                <SiRainmeter
+                  style={{
+                    position: "relative",
+                    // transform: "scale(1)",
+                    transform: "translate(.1vw)",
+                    margin: "0 .2vw 0 0",
+                  }}
+                />
+                {precipitation} mm
+              </Item>
             </List>
           </AdditionalInfo>
         </TemperatureInfo>

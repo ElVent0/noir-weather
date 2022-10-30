@@ -57,6 +57,14 @@ export const RightColumn = styled.li`
   backdrop-filter: blur(0.2vw);
   border-radius: 0.6vw;
   padding-bottom: 0.6vw;
+  & > div {
+    background-color: ${(props) => {
+      return props.time === true ? "#ff9900" : null;
+    }};
+    color: ${(props) => {
+      return props.time === true ? "rgba(255, 255, 255, 1)" : null;
+    }};
+  }
 `;
 
 export const Time = styled.div`
