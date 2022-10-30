@@ -7,6 +7,7 @@ import {
   Input,
   TodayBlock,
 } from "./LeftPart.styled";
+// import { ImSearch } from "react-icons/im";
 
 const LeftPart = ({ weatherData }) => {
   // console.log(2222, weatherData);

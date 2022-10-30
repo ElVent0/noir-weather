@@ -23,8 +23,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   width: 100%;
   height: 100%;
-  background: #ffffff;
-  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0); */
+  background-color: #ffffff;
   border-radius: 0.8vw;
   border: none;
   padding: 0 1.2vw;

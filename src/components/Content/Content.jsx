@@ -3,6 +3,7 @@ import RightPart from "../RightPart/RightPart";
 import { ContentBlock } from "./Content.styled";
 import { useState, useEffect } from "react";
 import { getData } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 const Content = () => {
   const currentHours = useState(new Date().getHours());
@@ -19,6 +20,11 @@ const Content = () => {
   //     alert(e);
   //   }
   // };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/?day=0");
+  }, []);
 
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
