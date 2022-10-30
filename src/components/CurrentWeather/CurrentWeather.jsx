@@ -35,6 +35,7 @@ const CurrentWeather = ({ weatherData }) => {
   const [seconds, setSeconds] = useState(new Date().getSeconds());
 
   // const sun = weatherData.current_weather.weathercode;
+
   const sun = [0].some(
     (item) => item === weatherData.current_weather.weathercode
   );
