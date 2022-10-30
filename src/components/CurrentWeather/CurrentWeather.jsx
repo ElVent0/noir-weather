@@ -22,8 +22,10 @@ import {
   BsFillCloudLightningRainFill,
   BsFillCloudFogFill,
 } from "react-icons/bs";
-import { FaRegSnowflake, FaThermometerHalf } from "react-icons/fa";
+import { FaRegSnowflake } from "react-icons/fa";
+
 import { WiHumidity } from "react-icons/wi";
+import { FaThermometerHalf } from "react-icons/fa";
 import { GiWindsock } from "react-icons/gi";
 import { SiRainmeter } from "react-icons/si";
 

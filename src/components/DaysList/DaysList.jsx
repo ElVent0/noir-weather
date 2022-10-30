@@ -14,6 +14,15 @@ import {
   DaysListStyled,
   // DayButton,
 } from "./DaysList.styled";
+import { IoMdSunny } from "react-icons/io";
+import {
+  BsFillCloudRainFill,
+  BsFillCloudFill,
+  BsFillCloudLightningRainFill,
+  BsFillCloudFogFill,
+} from "react-icons/bs";
+import { FaRegSnowflake } from "react-icons/fa";
+
 // import { useSearchParams } from "react-router-dom";
 // import { useState, useEffect } from "react";
 
@@ -61,11 +70,54 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
       maxTemperature: Math.round(weatherData.daily.temperature_2m_max[i]),
     });
   }
-
+  console.log(dailyData);
   return (
     <DaysListStyled>
       <List>
         {dailyData.map((item) => {
+          const sun = [0].some(
+            (currentItem) =>
+              currentItem === weatherData.daily.weathercode[item.id]
+          );
+          const clouds = [1, 2, 3].some(
+            (currentItem) =>
+              currentItem === weatherData.daily.weathercode[item.id]
+          );
+          const fog = [45, 48].some(
+            (item) => item === weatherData.daily.weathercode[item.id]
+          );
+          const rain = [
+            51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82,
+          ].some(
+            (currentItem) =>
+              currentItem === weatherData.daily.weathercode[item.id]
+          );
+          const snow = [71, 73, 75, 77, 85, 86].some(
+            (currentItem) =>
+              currentItem === weatherData.daily.weathercode[item.id]
+          );
+          const thunder = [95, 96, 99].some(
+            (currentItem) =>
+              currentItem === weatherData.daily.weathercode[item.id]
+          );
+
+          const weather = () => {
+            if (sun) {
+              return "sun";
+            } else if (clouds) {
+              return "clouds";
+            } else if (fog) {
+              return "fog";
+            } else if (rain) {
+              return "rain";
+            } else if (snow) {
+              return "snow";
+            } else if (thunder) {
+              return "thunder";
+            }
+          };
+
+          const delay = `.${item.id * 1.0}`;
           return (
             <Item
               key={item.time}
@@ -78,7 +130,26 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
                   <Day>{item.day}</Day>
                   <NumberDate>{item.time}</NumberDate>
                 </NameOfDay>
-                <Icon>{item.weatherCode}</Icon>
+                {/* <Icon>{item.weatherCode}</Icon> */}
+                <Icon weather={weather()} delay={delay}>
+                  {sun && <IoMdSunny size={"3vw"} color="#ff9900" />}
+                  {clouds && <BsFillCloudFill size={"3vw"} color="#989898" />}
+                  {fog && <BsFillCloudFogFill size={"3vw"} color="#cbcbcb" />}
+                  {rain && <BsFillCloudRainFill size={"3vw"} color="#5b5b5b" />}
+                  {snow && <FaRegSnowflake size={"3vw"} color="#7dadff" />}
+                  {thunder && (
+                    <BsFillCloudLightningRainFill
+                      size={"3vw"}
+                      color="#414141"
+                    />
+                  )}
+                  {/* <IoMdSunny size={"3vw"} color="#ff9900" /> */}
+                  {/* <BsFillCloudFill size={"3vw"} color="#7c7c7c" /> */}
+                  {/* <BsFillCloudFogFill size={"3vw"} color="#a5a5a5" /> */}
+                  {/* <BsFillCloudRainFill size={"3vw"} color="#5b5b5b" /> */}
+                  {/* <FaRegSnowflake size={"3vw"} color="#7dadff" /> */}
+                  {/* <BsFillCloudLightningRainFill size={"3vw"} color="#414141" /> */}
+                </Icon>
               </TopPart>
               <BottomPart>
                 <MinData>

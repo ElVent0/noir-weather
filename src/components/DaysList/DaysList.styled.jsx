@@ -1,4 +1,5 @@
-import styled from "styled-components";
+// import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const DaysListStyled = styled.div`
   margin-bottom: 0.6vw;
@@ -94,16 +95,21 @@ export const NumberDate = styled.p`
   }}; */
 `;
 
+const MoveUpDown = keyframes`
+ 0% { bottom: -.3vw; }
+ 50% { bottom: .3vw; }
+ 100% { bottom: -.3vw; }
+`;
+
 export const Icon = styled.div`
   width: 3vw;
   height: 3vw;
-  background-color: orange;
-  /* width: ${(props) => {
-    return props.numberOfDays === "14" ? "2.2vw" : null;
-  }};
-  height: ${(props) => {
-    return props.numberOfDays === "14" ? "2.2vw" : null;
-  }}; */
+  bottom: -0.3vw;
+  position: relative;
+  animation: ${MoveUpDown} 3s infinite ease-in-out
+    ${(props) => {
+      return `${props.delay}s`;
+    }};
 `;
 
 export const BottomPart = styled.div`
