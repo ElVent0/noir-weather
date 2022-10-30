@@ -1,5 +1,5 @@
-let lat;
-let lon;
+let lat = 50.4823808;
+let lon = 30.3562752;
 
 const setLatLon = (position) => {
   lat = position.coords.latitude;
@@ -11,7 +11,7 @@ const setLatLon = (position) => {
 navigator.geolocation.getCurrentPosition(setLatLon);
 
 export const getData = async () => {
-  console.log(parseFloat(lat), parseFloat(lon));
+  console.log(lat, lon);
   const data = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${parseFloat(
       lat
