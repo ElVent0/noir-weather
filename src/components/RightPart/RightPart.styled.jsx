@@ -6,15 +6,26 @@ export const NumberOfDaysButtons = styled.div`
   justify-content: flex-end;
   margin-bottom: 0.6vw;
   height: 2vw;
+  @media (max-width: 768px) {
+    margin-bottom: 0.6vw;
+    height: 4vw;
+  }
 `;
 
 export const RightPartStyled = styled.div`
   width: calc(70% - 0.6vw);
+  @media (max-width: 768px) {
+    /* width: calc(70% - 0.6vw); */
+    width: 100%;
+  }
 `;
 
 export const List = styled.ul`
   display: flex;
   gap: 0.6vw;
+  @media (max-width: 768px) {
+    gap: 1vw;
+  }
 `;
 
 export const Item = styled.li`
@@ -36,6 +47,9 @@ export const Item = styled.li`
     return props.numberOfDays === "7" ? " .4" : null;
   }};
   } */
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+  }
 `;
 
 export const Button = styled.button`
@@ -50,4 +64,9 @@ export const Button = styled.button`
   padding: 0 0.6vw;
   background-color: transparent;
   border: none;
+  @media (max-width: 768px) {
+    font-size: 4vw;
+    border-radius: 4vw;
+    padding: 0 3vw;
+  }
 `;

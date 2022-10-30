@@ -2,7 +2,8 @@ import LeftPart from "../LeftPart/LeftPart";
 import RightPart from "../RightPart/RightPart";
 import { ContentBlock } from "./Content.styled";
 import { useState, useEffect } from "react";
-import { getData } from "../../api/api";
+import { getData } from "../../api/apiWeather";
+import { getDataFromSearch } from "../../api/apiWeather";
 import { useNavigate } from "react-router-dom";
 
 const Content = () => {
@@ -28,6 +29,7 @@ const Content = () => {
 
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [chosenLocation, setChosenLocation] = useState(null);
 
   // ----------------------------------------------
 
@@ -40,7 +42,7 @@ const Content = () => {
         if (fetchedData) {
           setWeatherData(fetchedData);
         }
-        // console.log(1111, fetchedData);
+        console.log(1234, fetchedData);
       } catch (e) {
         alert("На даний момент сервер не працює");
       } finally {
@@ -51,12 +53,34 @@ const Content = () => {
     handleData();
   }, []);
 
+  const onChooseCity = async (lat, lon) => {
+    setChosenLocation([lat, lon]);
+  };
+
+  useEffect(() => {
+    if (chosenLocation != null) {
+      const a = async (lat, lon) => {
+        try {
+          const fetchedData = await getDataFromSearch(lat, lon);
+          if (fetchedData) {
+            setWeatherData(fetchedData);
+          }
+          // console.log(1111, fetchedData);
+        } catch (e) {
+          alert("На даний момент сервер не працює");
+        }
+      };
+
+      a(chosenLocation[0], chosenLocation[1]);
+    }
+  }, [chosenLocation]);
+
   return (
     <ContentBlock>
       {/* {isLoading && <Loading />} */}
       {!isLoading && (
         <>
-          <LeftPart weatherData={weatherData} />
+          <LeftPart weatherData={weatherData} onChooseCity={onChooseCity} />
           <RightPart weatherData={weatherData} currentHours={currentHours[0]} />
         </>
       )}

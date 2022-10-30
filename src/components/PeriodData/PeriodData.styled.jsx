@@ -9,12 +9,19 @@ export const ItemData = styled.li`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.8vw;
   flex-grow: 1;
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+  }
 `;
 
 export const Columns = styled.ul`
   display: flex;
   gap: 0.6vw;
   padding: 0.6vw;
+  @media (max-width: 768px) {
+    gap: 3vw;
+    padding: 3vw;
+  }
 `;
 
 export const Period = styled.div`
@@ -31,6 +38,11 @@ export const Period = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding: 0.2vw 0;
+  @media (max-width: 768px) {
+    font-size: 3.4vw;
+    padding: 1vw 0;
+    border-radius: 0 0 4vw 4vw;
+  }
 `;
 
 export const LeftColumn = styled.li`
@@ -40,6 +52,10 @@ export const LeftColumn = styled.li`
   backdrop-filter: blur(0.2vw);
   border-radius: 0.6vw;
   padding-bottom: 0.6vw;
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+    padding-bottom: 3vw;
+  }
   & > div {
     background-color: ${(props) => {
       return props.time === true ? "#ff9900" : null;
@@ -57,6 +73,10 @@ export const RightColumn = styled.li`
   backdrop-filter: blur(0.2vw);
   border-radius: 0.6vw;
   padding-bottom: 0.6vw;
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+    padding-bottom: 3vw;
+  }
   & > div {
     background-color: ${(props) => {
       return props.time === true ? "#ff9900" : null;
@@ -81,6 +101,12 @@ export const Time = styled.div`
   color: #707070;
   padding: 0.2vw 0.8vw;
   margin-bottom: 0.6vw;
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+    font-size: 3vw;
+    padding: 1vw 3vw;
+    margin-bottom: 3vw;
+  }
 `;
 
 export const List = styled.ul`
@@ -94,6 +120,10 @@ export const Item = styled.li`
   text-align: center;
   color: #ffffff;
   margin-bottom: 0.4vw;
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    margin-bottom: 3vw;
+  }
   &:last-child {
     margin-bottom: 0;
   }

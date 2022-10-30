@@ -14,6 +14,11 @@ export const CurrentWeatherStyled = styled.div`
   background-image: url("${poster}");
   background-repeat: no-repeat;
   background-size: cover;
+  @media (max-width: 768px) {
+    border-radius: 2vw;
+    margin-bottom: 4vw;
+    padding: 3vw;
+  }
 `;
 
 export const TimeBlock = styled.div`
@@ -26,10 +31,17 @@ export const TimeBlock = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  @media (max-width: 768px) {
+    padding: 3vw 4vw;
+    border-radius: 4vw;
+  }
 `;
 
 export const LeftPartOfTimeBlock = styled.div`
   margin-right: 0.8vw;
+  @media (max-width: 768px) {
+    margin-right: 3vw;
+  }
 `;
 
 export const Icon = styled.div`
@@ -44,12 +56,18 @@ export const Icon = styled.div`
     color: #ecd60f;
     margin-right: 0.4vw;
   } */
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const City = styled.p`
   font-weight: 275;
   font-size: 1vw;
   /* line-height: 17px; */
+  @media (max-width: 768px) {
+    font-size: 3.2vw;
+  }
 `;
 
 export const Time = styled.p`
@@ -59,6 +77,13 @@ export const Time = styled.p`
   margin-bottom: 0.2vw;
   & > span {
     font-size: 1vw;
+    @media (max-width: 768px) {
+      font-size: 4vw;
+    }
+  }
+  @media (max-width: 768px) {
+    font-size: 8vw;
+    margin-bottom: 2vw;
   }
 `;
 
@@ -72,6 +97,14 @@ export const SunRiseDown = styled.p`
   }
   & > span:first-child {
     margin-right: 0.4vw;
+    @media (max-width: 768px) {
+      font-size: 3vw;
+      margin-right: 2vw;
+    }
+  }
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    display: block;
   }
 `;
 
@@ -81,7 +114,6 @@ export const WeatherBlock = styled.div`
   right: 0;
   height: 100%;
   width: 100%;
-
   background-image: url("${shape}");
   background-position: calc(100% + 0.2vw);
   background-repeat: no-repeat;
@@ -97,6 +129,9 @@ export const WeatherBlock = styled.div`
   mask-position: right;
   mask-size: contain;
   backdrop-filter: blur(20px); */
+  @media (max-width: 768px) {
+    padding: 0 3vw 3vw 0;
+  }
 `;
 
 export const TemperatureInfo = styled.div`
@@ -116,6 +151,15 @@ export const Temperature = styled.div`
   & > svg {
     width: 1vw;
     margin-right: 0.4vw;
+    @media (max-width: 768px) {
+      width: 10vw;
+      height: 10vw;
+      bottom: -0.3vw;
+    }
+  }
+  @media (max-width: 768px) {
+    font-size: 12vw;
+    margin-bottom: 1vw;
   }
 `;
 
@@ -128,16 +172,25 @@ export const Fealing = styled.div`
   color: #707070;
   margin-bottom: 0.6vw;
   opacity: 0.8;
+  @media (max-width: 768px) {
+    font-size: 4vw;
+    margin-bottom: 2vw;
+  }
 `;
 
 export const AdditionalInfo = styled.div`
   display: flex;
   justify-content: right;
+  @media (max-width: 768px) {
+  }
 `;
 
 export const List = styled.div`
   display: flex;
   gap: 0.3vw;
+  @media (max-width: 768px) {
+    gap: 1.4vw;
+  }
 `;
 
 export const Item = styled.div`
@@ -163,5 +216,10 @@ export const Item = styled.div`
     background-color: #fff;
     padding: 0.2vw 0.4vw;
     border-radius: 0.4vw;
+  }
+  @media (max-width: 768px) {
+    font-size: 2.8vw;
+    padding: 1.2vw 1.8vw;
+    border-radius: 4vw;
   }
 `;

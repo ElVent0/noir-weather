@@ -7,6 +7,10 @@ export const ScheaduleBlock = styled.div`
   width: 100%;
   padding: 0.6vw;
   /* height: 16vw; */
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+    padding: 3vw;
+  }
 `;
 
 export const ScheaduleBlockContent = styled.div`
@@ -15,8 +19,11 @@ export const ScheaduleBlockContent = styled.div`
 
 export const Description = styled.div`
   margin-right: 0.6vw;
-  /* width: 10%; */
   flex-grow: 1;
+  @media (max-width: 768px) {
+    margin-right: 0vw;
+    /* flex-grow: 1; */
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -26,9 +33,15 @@ export const Paragraph = styled.p`
   text-align: right;
   color: #707070;
   margin-bottom: 0.8vw;
+  @media (max-width: 768px) {
+    font-size: 8vw;
+    margin-bottom: 8.2vw;
+  }
 `;
 
-export const ListDescription = styled.ul``;
+export const ListDescription = styled.ul`
+  /* width: 140%; */
+`;
 
 export const ItemDescription = styled.li`
   font-weight: 275;
@@ -40,16 +53,31 @@ export const ItemDescription = styled.li`
   &:last-child {
     margin-bottom: 0;
   }
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    margin-bottom: 3vw;
+    & > b {
+      display: none;
+    }
+  }
 `;
 
 export const Data = styled.div`
-  /* width: 78%; */
-
   margin-left: 0.6vw;
+  @media (max-width: 768px) {
+    padding-left: 0vw;
+    overflow-x: scroll;
+    margin-left: 2vw;
+    border-radius: 4vw;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const ListData = styled.ul`
   display: flex;
   width: 100%;
   gap: 1vw;
+  @media (max-width: 768px) {
+    gap: 2vw;
+  }
 `;

@@ -161,7 +161,7 @@ const CurrentWeather = ({ weatherData }) => {
             <FaThermometerHalf />
             {Math.round(weatherData.current_weather.temperature)}°
           </Temperature>
-          <Fealing>Apparent temperature {apparent_temperature}°</Fealing>
+          <Fealing>Apparent {apparent_temperature}°</Fealing>
           <AdditionalInfo>
             <List>
               <Item data="Humidity">

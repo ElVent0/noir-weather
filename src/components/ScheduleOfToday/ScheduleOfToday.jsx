@@ -13,40 +13,40 @@ import morningBg from "../../media/morning.jpg";
 import dayBg from "../../media/day.jpg";
 import eveningBg from "../../media/evening.jpg";
 import PeriodData from "../PeriodData/PeriodData";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
   // const dataSetOne = weatherData.hourly;
 
-  const tempRef = useRef(weatherData.hourly.temperature_2m);
-  const appTempRef = useRef(weatherData.hourly.apparent_temperature);
-  const humRef = useRef(weatherData.hourly.relativehumidity_2m);
-  const pressRef = useRef(weatherData.hourly.surface_pressure);
-  const cloudRef = useRef(weatherData.hourly.cloudcover);
-  const windRef = useRef(weatherData.hourly.windspeed_10m);
+  // const tempRef = useRef(weatherData.hourly.temperature_2m);
+  // const appTempRef = useRef(weatherData.hourly.apparent_temperature);
+  // const humRef = useRef(weatherData.hourly.relativehumidity_2m);
+  // const pressRef = useRef(weatherData.hourly.surface_pressure);
+  // const cloudRef = useRef(weatherData.hourly.cloudcover);
+  // const windRef = useRef(weatherData.hourly.windspeed_10m);
 
   const [dataForChosenDay, setDataForChosenDay] = useState({
-    temperature_2m: tempRef.current.slice(
+    temperature_2m: weatherData.hourly.temperature_2m.slice(
       0 + 24 * defaultDay,
       24 + 24 * defaultDay
     ),
-    apparent_temperature: appTempRef.current.slice(
+    apparent_temperature: weatherData.hourly.apparent_temperature.slice(
       0 + 24 * defaultDay,
       24 + 24 * defaultDay
     ),
-    relativehumidity_2m: humRef.current.slice(
+    relativehumidity_2m: weatherData.hourly.relativehumidity_2m.slice(
       0 + 24 * defaultDay,
       24 + 24 * defaultDay
     ),
-    surface_pressure: pressRef.current.slice(
+    surface_pressure: weatherData.hourly.surface_pressure.slice(
       0 + 24 * defaultDay,
       24 + 24 * defaultDay
     ),
-    cloudcover: cloudRef.current.slice(
+    cloudcover: weatherData.hourly.cloudcover.slice(
       0 + 24 * defaultDay,
       24 + 24 * defaultDay
     ),
-    windspeed_10m: windRef.current.slice(
+    windspeed_10m: weatherData.hourly.windspeed_10m.slice(
       0 + 24 * defaultDay,
       24 + 24 * defaultDay
     ),
@@ -54,32 +54,40 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
 
   useEffect(() => {
     setDataForChosenDay({
-      temperature_2m: tempRef.current.slice(
+      temperature_2m: weatherData.hourly.temperature_2m.slice(
         0 + 24 * defaultDay,
         24 + 24 * defaultDay
       ),
-      apparent_temperature: appTempRef.current.slice(
+      apparent_temperature: weatherData.hourly.apparent_temperature.slice(
         0 + 24 * defaultDay,
         24 + 24 * defaultDay
       ),
-      relativehumidity_2m: humRef.current.slice(
+      relativehumidity_2m: weatherData.hourly.relativehumidity_2m.slice(
         0 + 24 * defaultDay,
         24 + 24 * defaultDay
       ),
-      surface_pressure: pressRef.current.slice(
+      surface_pressure: weatherData.hourly.surface_pressure.slice(
         0 + 24 * defaultDay,
         24 + 24 * defaultDay
       ),
-      cloudcover: cloudRef.current.slice(
+      cloudcover: weatherData.hourly.cloudcover.slice(
         0 + 24 * defaultDay,
         24 + 24 * defaultDay
       ),
-      windspeed_10m: windRef.current.slice(
+      windspeed_10m: weatherData.hourly.windspeed_10m.slice(
         0 + 24 * defaultDay,
         24 + 24 * defaultDay
       ),
     });
-  }, [defaultDay]);
+  }, [
+    defaultDay,
+    weatherData.hourly.apparent_temperature,
+    weatherData.hourly.cloudcover,
+    weatherData.hourly.relativehumidity_2m,
+    weatherData.hourly.surface_pressure,
+    weatherData.hourly.temperature_2m,
+    weatherData.hourly.windspeed_10m,
+  ]);
 
   // useEffect(() => {}, [dataForChosenDay]);
 
@@ -96,6 +104,8 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
     cloudcover: every_nth(dataForChosenDay.cloudcover, 3),
     windspeed_10m: every_nth(dataForChosenDay.windspeed_10m, 3),
   };
+
+  console.log(necessaryData);
 
   const necessaryNightData = {
     temperature_2m: [
@@ -204,22 +214,22 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
           </Paragraph>
           <ListDescription>
             <ItemDescription>
-              Temperature, <b>°</b>
+              Temperature <b>°</b>
             </ItemDescription>
             <ItemDescription>
-              Apparent, <b>°</b>
+              Apparent <b>°</b>
             </ItemDescription>
             <ItemDescription>
-              Humidity, <b>%</b>
+              Humidity <b>%</b>
             </ItemDescription>
             <ItemDescription>
-              Pressure, <b>hPa</b>
+              Pressure <b>hPa</b>
             </ItemDescription>
             <ItemDescription>
-              Cloudcover, <b>%</b>
+              Cloudcover <b>%</b>
             </ItemDescription>
             <ItemDescription>
-              Wind speed, <b>km/h</b>
+              Wind speed <b>km/h</b>
             </ItemDescription>
           </ListDescription>
         </Description>

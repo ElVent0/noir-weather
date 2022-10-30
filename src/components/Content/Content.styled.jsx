@@ -9,4 +9,11 @@ export const ContentBlock = styled.div`
   display: flex;
   display: flex;
   flex-direction: row;
+  @media (max-width: 768px) {
+    display: block;
+    top: 5%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    padding: 0 0 10vw 0;
+  }
 `;

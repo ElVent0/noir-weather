@@ -3,13 +3,42 @@ import styled, { keyframes } from "styled-components";
 
 export const DaysListStyled = styled.div`
   margin-bottom: 0.6vw;
-  /* height: 7vw; */
+  @media (max-width: 768px) {
+    margin-bottom: 0vw;
+    /* width: 100vw; */
+  }
+  & > div {
+    @media (max-width: 768px) {
+      overflow-x: scroll;
+      /* width: 100vw; */
+      padding: 6vw 0;
+    }
+  }
 `;
 
 export const List = styled.ul`
   display: flex;
   width: 100%;
   gap: 0.6vw;
+  @media (max-width: 768px) {
+    gap: 2vw;
+    padding-right: 4vw;
+  }
+`;
+
+export const ListWithArrow = styled.div`
+  display: flex;
+  align-items: center;
+  & > svg {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+      /* width: 4vw;
+      height: 4vw; */
+      margin-right: 4vw;
+      color: red;
+    }
+  }
 `;
 
 export const Item = styled.li`
@@ -34,12 +63,11 @@ export const Item = styled.li`
   box-shadow: ${(props) => {
     return props.active && "0px 4px 10px rgba(0, 0, 0, 0.2)";
   }};
-  /* padding-top: ${(props) => {
-    return props.numberOfDays === "14" ? " 1vw" : null;
-  }};
-  padding-bottom: ${(props) => {
-    return props.numberOfDays === "14" ? " 1vw" : null;
-  }}; */
+  @media (max-width: 768px) {
+    border-radius: 4vw;
+    padding: 3vw;
+    /* box-shadow: none; */
+  }
 `;
 
 // export const DayButton = styled.button`
@@ -64,6 +92,9 @@ export const TopPart = styled.div`
   margin-bottom: ${(props) => {
     return props.numberOfDays === "14" ? "0" : null;
   }}; */
+  @media (max-width: 768px) {
+    margin-bottom: 3vw;
+  }
 `;
 
 export const NameOfDay = styled.div`
@@ -72,6 +103,9 @@ export const NameOfDay = styled.div`
   /* margin-bottom: ${(props) => {
     return props.numberOfDays === "14" ? "1.25vw" : null;
   }}; */
+  @media (max-width: 768px) {
+    margin-right: 3vw;
+  }
 `;
 
 export const Day = styled.p`
@@ -83,6 +117,9 @@ export const Day = styled.p`
   /* font-size: ${(props) => {
     return props.numberOfDays === "14" ? "1.52vw" : null;
   }}; */
+  @media (max-width: 768px) {
+    font-size: 5vw;
+  }
 `;
 
 export const NumberDate = styled.p`
@@ -93,6 +130,9 @@ export const NumberDate = styled.p`
   /* font-size: ${(props) => {
     return props.numberOfDays === "14" ? ".86vw" : null;
   }}; */
+  @media (max-width: 768px) {
+    font-size: 4vw;
+  }
 `;
 
 const MoveUpDown = keyframes`
@@ -106,10 +146,45 @@ export const Icon = styled.div`
   height: 3vw;
   bottom: -0.3vw;
   position: relative;
+  & > svg {
+    width: 3vw;
+    height: 3vw;
+  }
   animation: ${MoveUpDown} 3s infinite ease-in-out
     ${(props) => {
       return `${props.delay}s`;
     }};
+  @media (max-width: 768px) {
+    width: 6vw;
+    height: 6vw;
+    bottom: -0.3vw;
+  }
+  @media (max-width: 768px) {
+    width: 6vw;
+    height: 6vw;
+    bottom: -0.3vw;
+    & > svg {
+      width: 6vw;
+      height: 6vw;
+    }
+  }
+`;
+
+export const IconArraw = styled.div`
+  position: relative;
+  display: none;
+  animation: ${MoveUpDown} 3s infinite ease-in-out
+    ${(props) => {
+      return `${props.delay}s`;
+    }};
+  @media (max-width: 768px) {
+    margin-right: 4vw;
+    display: block;
+  }
+  & > svg {
+    width: 12vw;
+    height: 12vw;
+  }
 `;
 
 export const BottomPart = styled.div`
@@ -118,6 +193,9 @@ export const BottomPart = styled.div`
     return props.numberOfDays === "14" ? " none" : null;
   }}; */
   gap: 0.6vw;
+  @media (max-width: 768px) {
+    gap: 2vw;
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -127,6 +205,10 @@ export const Paragraph = styled.p`
   color: #707070;
   margin-bottom: 0.3vw;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+  }
 `;
 
 export const Temperature = styled.p`
@@ -141,6 +223,11 @@ export const Temperature = styled.p`
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 0.6vw;
   padding: 6px 0;
+  @media (max-width: 768px) {
+    font-size: 4vw;
+    border-radius: 2vw;
+    padding: 6px 0;
+  }
 `;
 
 export const MinData = styled.div`
