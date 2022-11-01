@@ -19,6 +19,5 @@ export const getLocation = async (cityName) => {
     }
   );
   const parsedData = await data.json();
-  console.log(1111, parsedData);
   return parsedData;
 };

@@ -23,10 +23,10 @@ const Content = () => {
   //   }
   // };
 
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   navigate("/?day=0");
-  // }, []);
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/?day=0");
+  }, []);
 
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

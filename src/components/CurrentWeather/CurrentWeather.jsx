@@ -110,8 +110,6 @@ const CurrentWeather = ({
   //   console.log(locationData);
   // }
 
-  console.log(cityName);
-
   return (
     <CurrentWeatherStyled>
       <TimeBlock>
