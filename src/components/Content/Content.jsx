@@ -1,10 +1,11 @@
 import LeftPart from "../LeftPart/LeftPart";
 import RightPart from "../RightPart/RightPart";
 import { ContentBlock } from "./Content.styled";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getData } from "../../api/apiWeather";
 import { getDataFromSearch } from "../../api/apiWeather";
 import { useNavigate } from "react-router-dom";
+import { getLocation } from "../../api/apiLocation";
 
 const Content = () => {
   const currentHours = useState(new Date().getHours());
@@ -22,14 +23,18 @@ const Content = () => {
   //   }
   // };
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/?day=0");
-  }, []);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   navigate("/?day=0");
+  // }, []);
 
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [chosenLocation, setChosenLocation] = useState(null);
+  const [chosenLat, setChosenLat] = useState(null);
+  const [chosenLon, setChosenLon] = useState(null);
+  const [currentCity, setCurrentCity] = useState(null);
+  const [locationData, setLocationData] = useState(null);
+  const [cityName, setCityName] = useState("");
 
   // ----------------------------------------------
 
@@ -42,7 +47,7 @@ const Content = () => {
         if (fetchedData) {
           setWeatherData(fetchedData);
         }
-        console.log(1234, fetchedData);
+        console.log("Init data", fetchedData);
       } catch (e) {
         alert("На даний момент сервер не працює");
       } finally {
@@ -50,37 +55,114 @@ const Content = () => {
       }
     };
 
+    // if (localStorage.getItem("location")) {
+    //   const a = async (lat, lon) => {
+    //     try {
+    //       const fetchedData = await getDataFromSearch(lat, lon);
+    //       if (fetchedData) {
+    //         setWeatherData(fetchedData);
+    //         console.log("On change data", fetchedData);
+    //       }
+    //     } catch (e) {
+    //       alert("На даний момент сервер не працює");
+    //     }
+    //   };
+    //   a(
+    //     JSON.parse(localStorage.getItem("location")).latitude,
+    //     JSON.parse(localStorage.getItem("location")).longitude
+    //   );
+    // } else {
+    //   console.log("bad");
     handleData();
+    // }
   }, []);
 
   const onChooseCity = async (lat, lon) => {
-    setChosenLocation([lat, lon]);
+    setChosenLat(lat);
+    setChosenLon(lon);
+    setCityName("");
+    console.log(1111111111111111, chosenLat, chosenLon);
   };
 
   useEffect(() => {
-    if (chosenLocation != null) {
+    if (chosenLat != null && chosenLon != null) {
       const a = async (lat, lon) => {
         try {
           const fetchedData = await getDataFromSearch(lat, lon);
           if (fetchedData) {
             setWeatherData(fetchedData);
+            console.log("On change data", fetchedData);
           }
-          // console.log(1111, fetchedData);
         } catch (e) {
           alert("На даний момент сервер не працює");
         }
       };
-
-      a(chosenLocation[0], chosenLocation[1]);
+      a(chosenLat, chosenLon);
     }
-  }, [chosenLocation]);
+  }, [chosenLat, chosenLon]);
+
+  console.log(
+    "Weather data ---------------------------------------------- ",
+    weatherData
+  );
+
+  // const handleData = async (cityName) => {
+  //   try {
+  //     const fetchedData = await getLocation(cityName);
+  //     if (fetchedData) {
+  //       setLocationData(fetchedData);
+  //       console.log(
+  //         "12345667768678685685687568568658-------------------------",
+  //         fetchedData
+  //       );
+  //     }
+  //     console.log(1234567890, locationData);
+  //   } catch (e) {
+  //     alert(e, "На даний момент сервер не працює hahaha");
+  //   }
+  // };
+
+  const onChangeInput = (e) => {
+    setCityName(e.currentTarget.value);
+
+    // handleData(cityName);
+  };
+
+  useEffect(() => {
+    // getLocation(cityName);
+    // console.log(getLocation(cityName));
+
+    const handleData = async () => {
+      try {
+        const fetchedData = await getLocation(cityName);
+        if (fetchedData) {
+          setLocationData(fetchedData);
+          // console.log("----1234567890----", fetchedData);
+        }
+      } catch (e) {
+        alert("На даний момент сервер не працює");
+      }
+    };
+    handleData();
+  }, [cityName]);
+
+  const onReset = () => {
+    setCityName("");
+  };
 
   return (
     <ContentBlock>
       {/* {isLoading && <Loading />} */}
       {!isLoading && (
         <>
-          <LeftPart weatherData={weatherData} onChooseCity={onChooseCity} />
+          <LeftPart
+            weatherData={weatherData}
+            onChooseCity={onChooseCity}
+            onChangeInput={onChangeInput}
+            locationData={locationData}
+            cityName={cityName}
+            onReset={onReset}
+          />
           <RightPart weatherData={weatherData} currentHours={currentHours[0]} />
         </>
       )}

@@ -15,13 +15,11 @@ const RigthPart = ({ weatherData, currentHours }) => {
   const [defaultDay, setDefaultDay] = useState(0);
 
   const onDayClick = (e) => {
-    // console.log(e.currentTarget.value);
     setSearchParams({ day: e.currentTarget.value });
   };
 
   useEffect(() => {
     // if (day === "") return;
-
     // async function fetchUser() {
     //   const user = await FakeAPI.getUser(day);
     //   setUser(user);
@@ -32,15 +30,12 @@ const RigthPart = ({ weatherData, currentHours }) => {
   }, [searchParams]);
 
   // Змінити два наступні масиви на дані з Api (Для списку днів) -------------------------------
-
   const smallDataForNextDays = [1, 2, 3, 4, 5, 6, 7];
   // const bigDataForNextDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
   // -------------------------------------------------------------------------
 
   const refSmallData = useRef([...smallDataForNextDays]);
   // const refBigData = useRef([...bigDataForNextDays]);
-
   // const [numberOfDays, setNumberOfDays] = useState("7");
   const [dataForNextDays, setDataForNextDays] = useState(smallDataForNextDays);
 

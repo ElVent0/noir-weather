@@ -29,7 +29,13 @@ import { FaThermometerHalf } from "react-icons/fa";
 import { GiWindsock } from "react-icons/gi";
 import { SiRainmeter } from "react-icons/si";
 
-const CurrentWeather = ({ weatherData }) => {
+const CurrentWeather = ({
+  weatherData,
+  locationData,
+  cityName,
+  currentCity,
+}) => {
+  // console.log("locationData", locationData);
   const [hours, setHours] = useState(new Date().getHours());
   const [minutes, setMinutes] = useState(new Date().getMinutes());
   const [seconds, setSeconds] = useState(new Date().getSeconds());
@@ -100,12 +106,25 @@ const CurrentWeather = ({ weatherData }) => {
   const apparent_temperature = Math.round(
     weatherData.hourly.apparent_temperature[numberOfItemForCurrentWeather]
   );
+  // if (locationData.results) {
+  //   console.log(locationData);
+  // }
+
+  console.log(cityName);
 
   return (
     <CurrentWeatherStyled>
       <TimeBlock>
         <LeftPartOfTimeBlock>
+          {/* <City>{locationData.results.name ?? weatherData.timezone}</City> */}
+          {/* {locationData.results && locationData.results !== null ? (
+            <City>{locationData.results.name}</City>
+          ) : (
+            <City>{weatherData.timezone}</City>
+          )} */}
+          {/* // {!locationData.results && <City>{weatherData.timezone}</City>} */}
           <City>{weatherData.timezone}</City>
+          {/* <City>{currentCity}</City> */}
           <Time>
             {hours}:{minutes}:<span>{seconds}</span>
           </Time>

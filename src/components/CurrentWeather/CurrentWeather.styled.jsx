@@ -5,7 +5,7 @@ import poster from "../../media/poster-1.jpg";
 export const CurrentWeatherStyled = styled.div`
   position: relative;
   border-radius: 0.8vw;
-  margin-bottom: 0.8vw;
+  /* margin-bottom: 0.8vw; */
   background-color: teal;
   display: flex;
   justify-content: flex-start;
@@ -16,7 +16,7 @@ export const CurrentWeatherStyled = styled.div`
   background-size: cover;
   @media (max-width: 768px) {
     border-radius: 2vw;
-    margin-bottom: 4vw;
+    /* margin-bottom: 4vw; */
     padding: 3vw;
   }
 `;

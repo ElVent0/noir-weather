@@ -22,7 +22,6 @@ export const List = styled.ul`
   gap: 0.6vw;
   @media (max-width: 768px) {
     gap: 2vw;
-    padding-right: 4vw;
   }
 `;
 
@@ -35,8 +34,6 @@ export const ListWithArrow = styled.div`
       display: block;
       /* width: 4vw;
       height: 4vw; */
-      margin-right: 4vw;
-      color: red;
     }
   }
 `;
@@ -67,6 +64,9 @@ export const Item = styled.li`
     border-radius: 4vw;
     padding: 3vw;
     /* box-shadow: none; */
+    &:last-child {
+      padding-right: 3vw;
+    }
   }
 `;
 

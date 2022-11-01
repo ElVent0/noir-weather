@@ -1,67 +1,45 @@
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
 import CitiesList from "../CitiesList/CitiesList";
 import AirQuality from "../AirQuality/AirQuality";
+import { RiCloseCircleFill } from "react-icons/ri";
 import {
   LeftPartStyled,
   FormBlock,
   Form,
   Input,
   TodayBlock,
+  ButtonClose,
 } from "./LeftPart.styled";
 import { useState, useEffect } from "react";
-import { getLocation } from "../../api/apiLocation";
 // import { ImSearch } from "react-icons/im";
 
-const LeftPart = ({ weatherData, onChooseCity }) => {
-  const [cityName, setCityName] = useState("");
-  const [locationData, setLocationData] = useState(null);
-  // const [listOfCities, setListOfCities] = useState();
-
-  const onChangeInput = (e) => {
-    setCityName(e.currentTarget.value);
-    console.log(cityName);
-
-    const handleData = async () => {
-      try {
-        const fetchedData = await getLocation(e.currentTarget.value);
-        if (fetchedData) {
-          setLocationData(fetchedData);
-        }
-        console.log(1234567890, locationData);
-      } catch (e) {
-        alert("На даний момент сервер не працює");
-      }
-    };
-    handleData();
-  };
-
-  // useEffect(() => {
-  // getLocation(cityName);
-  // console.log(getLocation(cityName));
-
-  // const handleData = async () => {
-  //   try {
-  //     const fetchedData = await getLocation(cityName);
-  //     if (fetchedData) {
-  //       setLocationData(fetchedData);
-  //     }
-  //     console.log(1234567890, locationData);
-  //   } catch (e) {
-  //     alert("На даний момент сервер не працює");
-  //   }
-  // };
-  // handleData();
-  // }, [cityName]);
+const LeftPart = ({
+  weatherData,
+  onChooseCity,
+  onChangeInput,
+  locationData,
+  cityName,
+  onReset,
+}) => {
+  // const [inputText, setInputText] = useState("");
   // console.log(2222, weatherData);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setCityName("");
+
+    handleClick(
+      locationData.results[0].latitude,
+      locationData.results[0].longitude
+    );
   };
 
-  const handleClick = (lat, lon) => {
-    onChooseCity(lat, lon);
-    setCityName("");
+  const handleClick = (latitude, longitude) => {
+    onChooseCity(latitude, longitude);
+    localStorage.setItem(
+      "location",
+      JSON.stringify({ latitude: latitude, longitude: longitude })
+    );
+    // console.log("abrakadabra", localStorage.getItem("location"));
   };
 
   return (
@@ -74,18 +52,25 @@ const LeftPart = ({ weatherData, onChooseCity }) => {
             value={cityName}
             onChange={onChangeInput}
           />
+          <ButtonClose onClick={onReset}>
+            <RiCloseCircleFill />
+          </ButtonClose>
         </Form>
         {locationData !== null && locationData.results && (
           <CitiesList
             locationData={locationData}
-            // onChooseCity={onChooseCity}
+            onChooseCity={onChooseCity}
             handleClick={handleClick}
           />
         )}
       </FormBlock>
       <TodayBlock>
-        <CurrentWeather weatherData={weatherData} />
-        <AirQuality />
+        <CurrentWeather
+          weatherData={weatherData}
+          locationData={locationData}
+          cityName={cityName}
+        />
+        {/* <AirQuality /> */}
       </TodayBlock>
     </LeftPartStyled>
   );
