@@ -91,8 +91,6 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
 
   // useEffect(() => {}, [dataForChosenDay]);
 
-  console.log("----", dataForChosenDay);
-
   const every_nth = (arr, nth) =>
     arr.filter((e, i) => (i % nth) + 2 === nth - 1);
 
@@ -104,8 +102,6 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
     cloudcover: every_nth(dataForChosenDay.cloudcover, 3),
     windspeed_10m: every_nth(dataForChosenDay.windspeed_10m, 3),
   };
-
-  console.log(necessaryData);
 
   const necessaryNightData = {
     temperature_2m: [

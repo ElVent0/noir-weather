@@ -73,7 +73,6 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
       maxTemperature: Math.round(weatherData.daily.temperature_2m_max[i]),
     });
   }
-  console.log(dailyData);
   return (
     <DaysListStyled>
       <ListWithArrow>
@@ -82,7 +81,6 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
         </IconArraw>
         <List>
           {dailyData.map((item) => {
-            console.log(123456, weatherData.daily.weathercode[item.id]);
             const sun = [0].some(
               (currentItem) =>
                 currentItem === weatherData.daily.weathercode[item.id]

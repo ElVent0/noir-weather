@@ -47,7 +47,6 @@ const Content = () => {
         if (fetchedData) {
           setWeatherData(fetchedData);
         }
-        console.log("Init data", fetchedData);
       } catch (e) {
         alert("На даний момент сервер не працює");
       } finally {
@@ -81,7 +80,6 @@ const Content = () => {
     setChosenLat(lat);
     setChosenLon(lon);
     setCityName("");
-    console.log(1111111111111111, chosenLat, chosenLon);
   };
 
   useEffect(() => {
@@ -91,7 +89,6 @@ const Content = () => {
           const fetchedData = await getDataFromSearch(lat, lon);
           if (fetchedData) {
             setWeatherData(fetchedData);
-            console.log("On change data", fetchedData);
           }
         } catch (e) {
           alert("На даний момент сервер не працює");
@@ -100,11 +97,6 @@ const Content = () => {
       a(chosenLat, chosenLon);
     }
   }, [chosenLat, chosenLon]);
-
-  console.log(
-    "Weather data ---------------------------------------------- ",
-    weatherData
-  );
 
   // const handleData = async (cityName) => {
   //   try {
