@@ -21,9 +21,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  /* margin-bottom: 0.2vw; */
   background-color: #fff;
-  /* border-radius: 0.8vw; */
   padding: 0.2vw 1.2vw;
   cursor: pointer;
   &:hover {

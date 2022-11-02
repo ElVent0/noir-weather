@@ -1,6 +1,6 @@
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
 import CitiesList from "../CitiesList/CitiesList";
-import AirQuality from "../AirQuality/AirQuality";
+// import AirQuality from "../AirQuality/AirQuality";
 import { RiCloseCircleFill } from "react-icons/ri";
 import {
   LeftPartStyled,
@@ -10,8 +10,6 @@ import {
   TodayBlock,
   ButtonClose,
 } from "./LeftPart.styled";
-import { useState, useEffect } from "react";
-// import { ImSearch } from "react-icons/im";
 
 const LeftPart = ({
   weatherData,
@@ -21,9 +19,6 @@ const LeftPart = ({
   cityName,
   onReset,
 }) => {
-  // const [inputText, setInputText] = useState("");
-  // console.log(2222, weatherData);
-
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -39,7 +34,6 @@ const LeftPart = ({
       "location",
       JSON.stringify({ latitude: latitude, longitude: longitude })
     );
-    // console.log("abrakadabra", localStorage.getItem("location"));
   };
 
   return (

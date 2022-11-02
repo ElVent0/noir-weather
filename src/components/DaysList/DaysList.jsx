@@ -137,7 +137,6 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
                     <Day>{item.day}</Day>
                     <NumberDate>{item.time}</NumberDate>
                   </NameOfDay>
-                  {/* <Icon>{item.weatherCode}</Icon> */}
                   <Icon weather={weather()} delay={delay}>
                     {sun && <IoMdSunny color="#ff9900" />}
                     {clouds && <BsFillCloudFill color="#989898" />}
@@ -147,12 +146,6 @@ const DaysList = ({ weatherData, onDayClick, defaultDay }) => {
                     {thunder && (
                       <BsFillCloudLightningRainFill color="#414141" />
                     )}
-                    {/* <IoMdSunny size={"3vw"} color="#ff9900" /> */}
-                    {/* <BsFillCloudFill size={"3vw"} color="#7c7c7c" /> */}
-                    {/* <BsFillCloudFogFill size={"3vw"} color="#a5a5a5" /> */}
-                    {/* <BsFillCloudRainFill size={"3vw"} color="#5b5b5b" /> */}
-                    {/* <FaRegSnowflake size={"3vw"} color="#7dadff" /> */}
-                    {/* <BsFillCloudLightningRainFill size={"3vw"} color="#414141" /> */}
                   </Icon>
                 </TopPart>
                 <BottomPart>

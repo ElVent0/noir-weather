@@ -16,15 +16,6 @@ import PeriodData from "../PeriodData/PeriodData";
 import { useState, useEffect } from "react";
 
 const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
-  // const dataSetOne = weatherData.hourly;
-
-  // const tempRef = useRef(weatherData.hourly.temperature_2m);
-  // const appTempRef = useRef(weatherData.hourly.apparent_temperature);
-  // const humRef = useRef(weatherData.hourly.relativehumidity_2m);
-  // const pressRef = useRef(weatherData.hourly.surface_pressure);
-  // const cloudRef = useRef(weatherData.hourly.cloudcover);
-  // const windRef = useRef(weatherData.hourly.windspeed_10m);
-
   const [dataForChosenDay, setDataForChosenDay] = useState({
     temperature_2m: weatherData.hourly.temperature_2m.slice(
       0 + 24 * defaultDay,
@@ -88,8 +79,6 @@ const ScheduleOfToday = ({ weatherData, defaultDay, currentHours }) => {
     weatherData.hourly.temperature_2m,
     weatherData.hourly.windspeed_10m,
   ]);
-
-  // useEffect(() => {}, [dataForChosenDay]);
 
   const every_nth = (arr, nth) =>
     arr.filter((e, i) => (i % nth) + 2 === nth - 1);

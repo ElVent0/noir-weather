@@ -7,7 +7,6 @@ export const ContentBlock = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  /* flex-direction: row; */
   @media (max-width: 768px) {
     display: block;
     top: 5%;

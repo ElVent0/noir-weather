@@ -39,14 +39,11 @@ export const Paragraph = styled.p`
   }
 `;
 
-export const ListDescription = styled.ul`
-  /* width: 140%; */
-`;
+export const ListDescription = styled.ul``;
 
 export const ItemDescription = styled.li`
   font-weight: 275;
   font-size: 1vw;
-  /* line-height: 12px; */
   text-align: right;
   color: #707070;
   margin-bottom: 0.4vw;

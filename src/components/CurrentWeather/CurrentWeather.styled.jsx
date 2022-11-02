@@ -5,7 +5,6 @@ import poster from "../../media/poster-1.jpg";
 export const CurrentWeatherStyled = styled.div`
   position: relative;
   border-radius: 0.8vw;
-  /* margin-bottom: 0.8vw; */
   background-color: teal;
   display: flex;
   justify-content: flex-start;
@@ -16,7 +15,6 @@ export const CurrentWeatherStyled = styled.div`
   background-size: cover;
   @media (max-width: 768px) {
     border-radius: 2vw;
-    /* margin-bottom: 4vw; */
     padding: 3vw;
   }
 `;
@@ -50,12 +48,6 @@ export const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: orange; */
-  /* & > svg {
-    width: 10vw;
-    color: #ecd60f;
-    margin-right: 0.4vw;
-  } */
   @media (max-width: 768px) {
     display: none;
   }
@@ -64,7 +56,6 @@ export const Icon = styled.div`
 export const City = styled.p`
   font-weight: 275;
   font-size: 1vw;
-  /* line-height: 17px; */
   @media (max-width: 768px) {
     font-size: 3.2vw;
   }
@@ -73,7 +64,6 @@ export const City = styled.p`
 export const Time = styled.p`
   font-weight: 800;
   font-size: 2vw;
-  /* line-height: 26px; */
   margin-bottom: 0.2vw;
   & > span {
     font-size: 1vw;
@@ -90,7 +80,6 @@ export const Time = styled.p`
 export const SunRiseDown = styled.p`
   font-weight: 300;
   font-size: 0.54vw;
-  /* line-height: 7px; */
   display: flex;
   & > span {
     display: block;
@@ -123,12 +112,6 @@ export const WeatherBlock = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  /* mask-image: url("${shape}");
-  -webkit-mask-image: url("${shape}");
-  mask-repeat: no-repeat;
-  mask-position: right;
-  mask-size: contain;
-  backdrop-filter: blur(20px); */
   @media (max-width: 768px) {
     padding: 0 3vw 3vw 0;
   }
@@ -142,7 +125,6 @@ export const Temperature = styled.div`
   text-align: right;
   font-weight: 800;
   font-size: 2.6vw;
-  /* line-height: 31px; */
   text-align: right;
   color: #707070;
   display: flex;

@@ -31,11 +31,10 @@ import { SiRainmeter } from "react-icons/si";
 
 const CurrentWeather = ({
   weatherData,
-  locationData,
-  cityName,
-  currentCity,
+  // locationData,
+  // cityName,
+  // currentCity,
 }) => {
-  // console.log("locationData", locationData);
   const [hours, setHours] = useState(new Date().getHours());
   const [minutes, setMinutes] = useState(new Date().getMinutes());
   const [seconds, setSeconds] = useState(new Date().getSeconds());
@@ -67,14 +66,12 @@ const CurrentWeather = ({
         const date = new Date();
 
         let currentSeconds = date.getSeconds();
-        // console.log(currentSeconds);
         if (currentSeconds.toString().length < 2) {
           currentSeconds = `0${currentSeconds}`;
         }
         setSeconds(currentSeconds);
 
         let currentMinutes = date.getMinutes();
-        // console.log(currentMinutes);
         if (currentMinutes.toString().length < 2) {
           currentMinutes = `0${currentMinutes}`;
         }
@@ -92,13 +89,6 @@ const CurrentWeather = ({
 
   const numberOfItemForCurrentWeather =
     hours.toString().indexOf("0") === 0 ? hours.toString().slice(1) : hours;
-
-  // if (hours.indexOf(0) === 0) {
-  //   return hours.slice(1);
-  // } else {
-  //   return hours;
-  // }
-
   const precipitation =
     weatherData.hourly.precipitation[numberOfItemForCurrentWeather];
   const relativehumidity =
@@ -106,23 +96,12 @@ const CurrentWeather = ({
   const apparent_temperature = Math.round(
     weatherData.hourly.apparent_temperature[numberOfItemForCurrentWeather]
   );
-  // if (locationData.results) {
-  //   console.log(locationData);
-  // }
 
   return (
     <CurrentWeatherStyled>
       <TimeBlock>
         <LeftPartOfTimeBlock>
-          {/* <City>{locationData.results.name ?? weatherData.timezone}</City> */}
-          {/* {locationData.results && locationData.results !== null ? (
-            <City>{locationData.results.name}</City>
-          ) : (
-            <City>{weatherData.timezone}</City>
-          )} */}
-          {/* // {!locationData.results && <City>{weatherData.timezone}</City>} */}
           <City>{weatherData.timezone}</City>
-          {/* <City>{currentCity}</City> */}
           <Time>
             {hours}:{minutes}:<span>{seconds}</span>
           </Time>
@@ -163,15 +142,7 @@ const CurrentWeather = ({
           {thunder && (
             <BsFillCloudLightningRainFill size={"3.4vw"} color="#fff" />
           )}
-
-          {/* <IoMdSunny size={"3.4vw"} /> */}
-          {/* <BsFillCloudFill size={"3.4vw"} /> */}
-          {/* <BsFillCloudFogFill size={"3.4vw"} /> */}
-          {/* <BsFillCloudRainFill size={"3.4vw"} /> */}
-          {/* <FaRegSnowflake size={"3.4vw"} /> */}
-          {/* <BsFillCloudLightningRainFill size={"3.4vw"} /> */}
         </Icon>
-        {/* <WiDaySunny /> */}
       </TimeBlock>
       <WeatherBlock>
         <TemperatureInfo>
@@ -196,7 +167,6 @@ const CurrentWeather = ({
                 <GiWindsock
                   style={{
                     position: "relative",
-                    // transform: "scale(1.4)",
                     transform: "translate(.2vw)",
                     margin: "0 .2vw 0 0",
                   }}
@@ -207,7 +177,6 @@ const CurrentWeather = ({
                 <SiRainmeter
                   style={{
                     position: "relative",
-                    // transform: "scale(1)",
                     transform: "translate(.1vw)",
                     margin: "0 .2vw 0 0",
                   }}

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import { NavLink } from "react-router-dom";
 
 export const NumberOfDaysButtons = styled.div`
   display: flex;
@@ -15,7 +14,6 @@ export const NumberOfDaysButtons = styled.div`
 export const RightPartStyled = styled.div`
   width: calc(70% - 0.6vw);
   @media (max-width: 768px) {
-    /* width: calc(70% - 0.6vw); */
     width: 100%;
   }
 `;
@@ -37,16 +35,6 @@ export const Item = styled.li`
   align-items: center;
   height: 100%;
   opacity: 1;
-  /* &:first-child {
-    opacity: ${(props) => {
-    return props.numberOfDays === "14" ? " .4" : null;
-  }};
-  }
-  &:last-child {
-    opacity: ${(props) => {
-    return props.numberOfDays === "7" ? " .4" : null;
-  }};
-  } */
   @media (max-width: 768px) {
     border-radius: 4vw;
   }
@@ -55,7 +43,6 @@ export const Item = styled.li`
 export const Button = styled.button`
   font-weight: 400;
   font-size: 1vw;
-  /* line-height: 17px; */
   color: #707070;
   cursor: pointer;
   width: 100%;

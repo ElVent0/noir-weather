@@ -1,16 +1,13 @@
-// import styled from "styled-components";
 import styled, { keyframes } from "styled-components";
 
 export const DaysListStyled = styled.div`
   margin-bottom: 0.6vw;
   @media (max-width: 768px) {
     margin-bottom: 0vw;
-    /* width: 100vw; */
   }
   & > div {
     @media (max-width: 768px) {
       overflow-x: scroll;
-      /* width: 100vw; */
       padding: 6vw 0;
     }
   }
@@ -32,8 +29,6 @@ export const ListWithArrow = styled.div`
     display: none;
     @media (max-width: 768px) {
       display: block;
-      /* width: 4vw;
-      height: 4vw; */
     }
   }
 `;
@@ -63,35 +58,16 @@ export const Item = styled.li`
   @media (max-width: 768px) {
     border-radius: 4vw;
     padding: 3vw;
-    /* box-shadow: none; */
     &:last-child {
       padding-right: 3vw;
     }
   }
 `;
 
-// export const DayButton = styled.button`
-//   background: #ffffff;
-//   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-//   border-radius: 0.8vw;
-//   padding: 0.6vw;
-//   user-select: none;
-//   opacity: 0.6;
-//   &.active {
-//     opacity: 1;
-//   }
-// `;
-
 export const TopPart = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1vw;
-  /* display: ${(props) => {
-    return props.numberOfDays === "14" ? "block" : null;
-  }};
-  margin-bottom: ${(props) => {
-    return props.numberOfDays === "14" ? "0" : null;
-  }}; */
   @media (max-width: 768px) {
     margin-bottom: 3vw;
   }
@@ -100,9 +76,6 @@ export const TopPart = styled.div`
 export const NameOfDay = styled.div`
   margin-right: 0.4vw;
   margin-right: auto;
-  /* margin-bottom: ${(props) => {
-    return props.numberOfDays === "14" ? "1.25vw" : null;
-  }}; */
   @media (max-width: 768px) {
     margin-right: 3vw;
   }
@@ -111,12 +84,8 @@ export const NameOfDay = styled.div`
 export const Day = styled.p`
   font-weight: 700;
   font-size: 1.2vw;
-  /* line-height: 17px; */
   color: #707070;
   margin-bottom: auto;
-  /* font-size: ${(props) => {
-    return props.numberOfDays === "14" ? "1.52vw" : null;
-  }}; */
   @media (max-width: 768px) {
     font-size: 5vw;
   }
@@ -125,11 +94,7 @@ export const Day = styled.p`
 export const NumberDate = styled.p`
   font-weight: 300;
   font-size: 1vw;
-  /* line-height: 10px; */
   color: #707070;
-  /* font-size: ${(props) => {
-    return props.numberOfDays === "14" ? ".86vw" : null;
-  }}; */
   @media (max-width: 768px) {
     font-size: 4vw;
   }
@@ -189,9 +154,6 @@ export const IconArraw = styled.div`
 
 export const BottomPart = styled.div`
   display: flex;
-  /* display: ${(props) => {
-    return props.numberOfDays === "14" ? " none" : null;
-  }}; */
   gap: 0.6vw;
   @media (max-width: 768px) {
     gap: 2vw;
@@ -201,7 +163,6 @@ export const BottomPart = styled.div`
 export const Paragraph = styled.p`
   font-weight: 300;
   font-size: 0.5vw;
-  /* line-height: 7px; */
   color: #707070;
   margin-bottom: 0.3vw;
   text-align: center;
@@ -214,7 +175,6 @@ export const Paragraph = styled.p`
 export const Temperature = styled.p`
   font-weight: 300;
   font-size: 1vw;
-  /* line-height: 12px; */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,15 +1,9 @@
 import { List, Item, Country, Flag } from "./CitiesList.styled";
-// import { useState, useEffect } from "react";
 
 const CitiesList = ({ locationData, onChooseCity, handleClick }) => {
   return (
     <List>
       {locationData.results.map((item) => {
-        // const handleClick = (latitude, longitude) => {
-        //   onChooseCity(latitude, longitude);
-        //   // setCityName("");
-        // };
-
         return (
           <Item
             key={item.id}

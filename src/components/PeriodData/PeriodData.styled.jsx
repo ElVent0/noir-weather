@@ -31,7 +31,6 @@ export const Period = styled.div`
   border-radius: 0px 0px 0.6vw 0.6vw;
   font-weight: 300;
   font-size: 1vw;
-  /* line-height: 12px; */
   text-align: center;
   color: #707070;
   width: 50%;
@@ -94,7 +93,6 @@ export const Time = styled.div`
   border-radius: 0.6vw;
   font-weight: 300;
   font-size: 1vw;
-  /* line-height: 7px; */
   display: flex;
   align-items: center;
   justify-content: center;

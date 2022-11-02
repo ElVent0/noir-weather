@@ -2,10 +2,10 @@ import DaysList from "../DaysList/DaysList";
 import ScheduleOfToday from "../ScheduleOfToday/ScheduleOfToday";
 import {
   RightPartStyled,
-  NumberOfDaysButtons,
-  List,
-  Item,
-  Button,
+  // NumberOfDaysButtons,
+  // List,
+  // Item,
+  // Button,
 } from "./RightPart.styled";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -29,10 +29,8 @@ const RigthPart = ({ weatherData, currentHours }) => {
     setDefaultDay(searchParams.get("day"));
   }, [searchParams]);
 
-  // Змінити два наступні масиви на дані з Api (Для списку днів) -------------------------------
   const smallDataForNextDays = [1, 2, 3, 4, 5, 6, 7];
   // const bigDataForNextDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-  // -------------------------------------------------------------------------
 
   const refSmallData = useRef([...smallDataForNextDays]);
   // const refBigData = useRef([...bigDataForNextDays]);
@@ -41,7 +39,6 @@ const RigthPart = ({ weatherData, currentHours }) => {
 
   // const changeNumberOfDays = (e) => {
   //   setNumberOfDays(e.currentTarget.id);
-  //   console.log(numberOfDays);
   // };
 
   useEffect(() => {
