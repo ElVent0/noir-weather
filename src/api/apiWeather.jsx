@@ -8,8 +8,6 @@
 
 // navigator.geolocation.getCurrentPosition(setLatLon);
 
-// console.log(parseFloat(lat), parseFloat(lon));
-
 // API передумав давати дані про Україну, тому поки закоментував можливість визначення локації юзера
 
 export const getData = async () => {
