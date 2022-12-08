@@ -17,4 +17,5 @@ root.render(
   </React.StrictMode>
 );
 
-// localStorage + title city name
+// localStorage
+// Title city name
