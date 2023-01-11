@@ -7,7 +7,9 @@ const CitiesList = ({ locationData, onChooseCity, handleClick }) => {
         return (
           <Item
             key={item.id}
-            onClick={() => handleClick(item.latitude, item.longitude)}
+            onClick={() =>
+              handleClick(item.latitude, item.longitude, item.name)
+            }
           >
             <Flag
               src={`https://hatscripts.github.io/circle-flags/flags/${item.country_code.toLowerCase()}.svg`}

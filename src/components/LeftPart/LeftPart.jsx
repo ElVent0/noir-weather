@@ -18,23 +18,29 @@ const LeftPart = ({
   locationData,
   cityName,
   onReset,
+  chosenCity,
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log(234234234);
     handleClick(
       locationData.results[0].latitude,
-      locationData.results[0].longitude
+      locationData.results[0].longitude,
+      locationData.results[0].name
     );
   };
 
-  const handleClick = (latitude, longitude) => {
-    onChooseCity(latitude, longitude);
+  const handleClick = (latitude, longitude, name) => {
+    onChooseCity(latitude, longitude, name);
+    // console.log(12345678, latitude, longitude, name, locationData);
     localStorage.setItem(
       "location",
-      JSON.stringify({ latitude: latitude, longitude: longitude })
+      JSON.stringify({ latitude: latitude, longitude: longitude, name: name })
     );
   };
+
+  const chosenCityTemplate =
+    chosenCity === "Your location" ? "Search (In English)" : chosenCity;
 
   return (
     <LeftPartStyled>
@@ -42,7 +48,7 @@ const LeftPart = ({
         <Form onSubmit={onSubmit}>
           <Input
             type="text"
-            placeholder={weatherData.timezone}
+            placeholder={chosenCityTemplate}
             value={cityName}
             onChange={onChangeInput}
           />
@@ -61,8 +67,9 @@ const LeftPart = ({
       <TodayBlock>
         <CurrentWeather
           weatherData={weatherData}
-          locationData={locationData}
-          cityName={cityName}
+          // locationData={locationData}
+          // cityName={cityName}
+          chosenCity={chosenCity}
         />
         {/* <AirQuality /> */}
       </TodayBlock>

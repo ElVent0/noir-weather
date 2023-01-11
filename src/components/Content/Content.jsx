@@ -19,7 +19,8 @@ const Content = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [chosenLat, setChosenLat] = useState(null);
   const [chosenLon, setChosenLon] = useState(null);
-  const [currentCity, setCurrentCity] = useState(null);
+  const [chosenCity, setChosenCity] = useState(null);
+  // const [currentCity, setCurrentCity] = useState(null);
   const [locationData, setLocationData] = useState(null);
   const [cityName, setCityName] = useState("");
 
@@ -29,6 +30,7 @@ const Content = () => {
     const handleData = async () => {
       try {
         const fetchedData = await getData();
+        setChosenCity("Your location");
         if (fetchedData) {
           setWeatherData(fetchedData);
         }
@@ -61,9 +63,10 @@ const Content = () => {
     // }
   }, []);
 
-  const onChooseCity = async (lat, lon) => {
+  const onChooseCity = async (lat, lon, name) => {
     setChosenLat(lat);
     setChosenLon(lon);
+    setChosenCity(name);
     setCityName("");
   };
 
@@ -88,12 +91,7 @@ const Content = () => {
   //     const fetchedData = await getLocation(cityName);
   //     if (fetchedData) {
   //       setLocationData(fetchedData);
-  //       console.log(
-  //         "12345667768678685685687568568658-------------------------",
-  //         fetchedData
-  //       );
   //     }
-  //     console.log(1234567890, locationData);
   //   } catch (e) {
   //     alert(e, "На даний момент сервер не працює hahaha");
   //   }
@@ -118,13 +116,16 @@ const Content = () => {
     handleData();
   }, [cityName]);
 
-  const onReset = () => {
+  const onReset = (e) => {
+    e.preventDefault();
     setCityName("");
+    // setChosenCity("");
   };
+  console.log(chosenCity, cityName);
 
   return (
     <ContentBlock>
-      {/* {isLoading && <Loading />} */}
+      {isLoading && <p>Loading...</p>}
       {!isLoading && (
         <>
           <LeftPart
@@ -134,6 +135,7 @@ const Content = () => {
             locationData={locationData}
             cityName={cityName}
             onReset={onReset}
+            chosenCity={chosenCity}
           />
           <RightPart weatherData={weatherData} currentHours={currentHours[0]} />
         </>

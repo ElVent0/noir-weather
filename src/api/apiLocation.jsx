@@ -8,6 +8,7 @@ export const getLocation = async (cityName) => {
       }
     );
     const parsedData = await data.json();
+    console.log("location", parsedData);
     return parsedData;
   } catch (e) {
     console.log(e);

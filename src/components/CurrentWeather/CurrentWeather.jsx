@@ -34,6 +34,7 @@ const CurrentWeather = ({
   // locationData,
   // cityName,
   // currentCity,
+  chosenCity,
 }) => {
   const [hours, setHours] = useState(new Date().getHours());
   const [minutes, setMinutes] = useState(new Date().getMinutes());
@@ -101,7 +102,7 @@ const CurrentWeather = ({
     <CurrentWeatherStyled>
       <TimeBlock>
         <LeftPartOfTimeBlock>
-          <City>{weatherData.timezone}</City>
+          <City>{chosenCity}</City>
           <Time>
             {hours}:{minutes}:<span>{seconds}</span>
           </Time>
