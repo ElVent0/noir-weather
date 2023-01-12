@@ -1,9 +1,13 @@
 import { List, Item, Country, Flag } from "./CitiesList.styled";
 
 const CitiesList = ({ locationData, onChooseCity, handleClick }) => {
+  const filteredData = locationData.results.filter(
+    (obj, index) =>
+      index === locationData.results.findIndex((o) => obj.name === o.name)
+  );
   return (
     <List>
-      {locationData.results.map((item) => {
+      {filteredData.map((item) => {
         return (
           <Item
             key={item.id}

@@ -18,5 +18,3 @@ root.render(
 );
 
 // localStorage
-// Title city name
-// new api

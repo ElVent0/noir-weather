@@ -1,6 +1,7 @@
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
 import CitiesList from "../CitiesList/CitiesList";
 // import AirQuality from "../AirQuality/AirQuality";
+import { BiSearchAlt } from "react-icons/bi";
 import { RiCloseCircleFill } from "react-icons/ri";
 import {
   LeftPartStyled,
@@ -22,7 +23,8 @@ const LeftPart = ({
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(234234234);
+    // console.log(234234234);
+    console.log("send 1");
     handleClick(
       locationData.results[0].latitude,
       locationData.results[0].longitude,
@@ -31,6 +33,7 @@ const LeftPart = ({
   };
 
   const handleClick = (latitude, longitude, name) => {
+    console.log("send 2");
     onChooseCity(latitude, longitude, name);
     // console.log(12345678, latitude, longitude, name, locationData);
     localStorage.setItem(
@@ -52,6 +55,9 @@ const LeftPart = ({
             value={cityName}
             onChange={onChangeInput}
           />
+          <ButtonClose type="submit">
+            <BiSearchAlt />
+          </ButtonClose>
           <ButtonClose onClick={onReset}>
             <RiCloseCircleFill />
           </ButtonClose>

@@ -60,6 +60,30 @@ export const ButtonClose = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  &:first-of-type {
+    width: 1.5vw;
+    height: 1.5vw;
+    right: 2vw;
+    background-color: #ff9900;
+    border-radius: 1vw;
+    transition: all 0.3s;
+    z-index: 1000;
+    &:hover {
+      background-color: #ef8f00;
+      width: 23%;
+      height: 100%;
+      right: 0;
+    }
+    & > svg {
+      width: 1.1vw;
+      height: 1.1vw;
+      color: #fff;
+      transition: all 0.3s;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
   & > svg {
     width: 1.6vw;
     height: 1.6vw;
@@ -78,6 +102,22 @@ export const ButtonClose = styled.button`
     width: 10vw;
     height: 10vw;
     border-radius: 4vw;
+    &:first-of-type {
+      width: 7vw;
+      height: 7vw;
+      right: 10vw;
+      border-radius: 10vw;
+      z-index: 1000;
+      &:hover {
+        width: 23%;
+        height: 100%;
+        right: 0;
+      }
+      & > svg {
+        width: 6vw;
+        height: 6vw;
+      }
+    }
     & > svg {
       width: 8vw;
       height: 8vw;

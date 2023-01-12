@@ -63,13 +63,6 @@ const Content = () => {
     // }
   }, []);
 
-  const onChooseCity = async (lat, lon, name) => {
-    setChosenLat(lat);
-    setChosenLon(lon);
-    setChosenCity(name);
-    setCityName("");
-  };
-
   useEffect(() => {
     if (chosenLat != null && chosenLon != null) {
       const a = async (lat, lon) => {
@@ -116,8 +109,18 @@ const Content = () => {
     handleData();
   }, [cityName]);
 
+  const onChooseCity = async (lat, lon, name) => {
+    // e.preventDefault();
+    console.log("send 3");
+    setChosenLat(lat);
+    setChosenLon(lon);
+    setChosenCity(name);
+    setCityName("");
+  };
+
   const onReset = (e) => {
     e.preventDefault();
+    console.log("reset");
     setCityName("");
     // setChosenCity("");
   };
